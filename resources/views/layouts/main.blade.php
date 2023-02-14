@@ -12,7 +12,7 @@
     <!-- Favicons -->
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
- 
+
 
     <!-- Google Fonts -->
     <link
@@ -26,10 +26,20 @@
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
     <link rel="icon" href="{{ asset('assets/img/logorjs.png') }}">
+
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display: none;
+        }
+    </style>
 
     <!-- =======================================================
   * Template Name: eNno - v4.10.0
@@ -75,43 +85,39 @@
             <div class="container pt-5">
 
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        {{-- Image --}}
-                        {{-- <div class="icon-box">
-                            <div class="card"><i class="bi bi-laptop"></i></div>
-                            <h4 class="title">Perumahan</h4>
-                            <button class="btn btn-primary">Pesan</button>
-                        </div> --}}
+                    @foreach ($products as $product)
+                    <div class="col-lg-4 col-md-6 mt-4 mt-md-0 mb-2">
                         <div class="icon-box">
-                            <img src="https://cdn-2.tstatic.net/pekanbaru/foto/bank/images/perumahan-bersubsidi-griya-mandiri-asri-rimbo-panjang_20180921_190405.jpg"
-                                class="card-img-top" alt="..." style="max-height: 200px; max-width: 375px;">
-                            <div class="card-body">
-                                <h4 class="title d-flex align-content-center justify-content-center">Jasa Konstruksi</h4>
-                                <button class="col-md-12 btn btn-primary">Pesan</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
-                        <div class="icon-box">
-                            <img src="assets/img/portfolio/portfolio-6.jpg" class="card-img-top" alt="..."
+                            <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="..."
                                 style="max-height: 200px; max-width: 375px;">
                             <div class="card-body">
-                                <h4 class="title d-flex align-content-center justify-content-center">Perumahan</h4>
-                                <button class="col-md-12 btn btn-primary">Pesan</button>
+                                <h4 class="title d-flex align-content-center justify-content-center">
+                                    {{ $product->nama_produk }}</h4>
+                                <form action="/pemesananbarang" method="get">
+                                    @csrf
+                                    <button class="col-md-12 btn btn-primary">Pesan</button>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+                    @endforeach
+                    @foreach ($jasas as $jasa)
+                    <div class="col-lg-4 col-md-6 mt-4 mt-md-0 mb-2">
                         <div class="icon-box">
-                            <img src="assets/img/portfolio/portfolio-6.jpg" class="card-img-top" alt="..."
-                            style="max-height: 200px; max-width: 375px;">
-                        <div class="card-body">
-                            <h4 class="title d-flex align-content-center justify-content-center pt-2">Jasa Design</h4>
-                            <button class="col-md-12 btn btn-primary">Pesan</button>
+                            <img src="{{ asset('storage/' . $jasa->image) }}" class="card-img-top" alt="..."
+                                style="max-height: 200px; max-width: 375px;">
+                            <div class="card-body">
+                                <h4 class="title d-flex align-content-center justify-content-center">
+                                    {{ $jasa->nama_jasa }}</h4>
+                                <form action="/product/create" method="get">
+                                    @csrf
+                                    <button class="col-md-12 btn btn-primary">Pesan</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
-
             </div>
         </section><!-- End Featured Services Section -->
 
@@ -126,10 +132,12 @@
                     <div class="col-lg-6 pt-4 pt-lg-0 content">
                         <h3>PT Rovina Jaya Sentosa</h3>
                         <p class="fst-italic mt-4">
-                            Pada tahun 2014, Rowi meluncurkan PT Rovina Jaya Sentosa dengan visi 
-                            menyediakan produk dan jasa dalam bidang property yang mengedepankan kepuasan konsumen. 
-                            serta misi menjadikan perumahan dan hunian masyarakat menjadi produk terpadu dengan pemanfaatan 
-                            ruang dan lahan yang tepat, fungsi yang jelas, tata ruang higienis, sehat dan hemat energi serta 
+                            Pada tahun 2014, Rowi meluncurkan PT Rovina Jaya Sentosa dengan visi
+                            menyediakan produk dan jasa dalam bidang property yang mengedepankan kepuasan konsumen.
+                            serta misi menjadikan perumahan dan hunian masyarakat menjadi produk terpadu dengan
+                            pemanfaatan
+                            ruang dan lahan yang tepat, fungsi yang jelas, tata ruang higienis, sehat dan hemat energi
+                            serta
                             sebagai kesatuan produk akhir yang mudah dipelihara “Easy Maintain” dan
                             Memberikan jasa kontruksi, kustomisasi produk, dengan pemanfaatan teknologi terkini agar
                             interpretasi produk tepat sasaran, “Tepat Harga, Tepat Mutu, Tepat Waktu.”
@@ -238,7 +246,7 @@
                         <ul id="portfolio-flters">
                             <li data-filter="*" class="filter-active">All</li>
                             @foreach ($project as $p)
-                            <li data-filter=".filter-{{ $p->nama_project }}" class="filter">{{ $p->nama_project }}</li>  
+                            <li data-filter=".filter-{{ $p->nama_project }}" class="filter">{{ $p->nama_project }}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -246,19 +254,20 @@
 
                 <div class="row portfolio-container">
                     @foreach ($projects as $project)
-                    
+
                     <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $project->nama_project }}">
                         {{-- <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt=""> --}}
                         <img src="{{ asset('storage/' . $project->image) }}" class="img-fluid" alt="">
                         <div class="portfolio-info">
                             <h4>{{ $project->nama_project }}</h4>
                             <a href="{{ asset('storage/' . $project->image) }}" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox preview-link" title="{{ $project->nama_project }}"><i class="bx bx-plus"></i></a>
+                                class="portfolio-lightbox preview-link" title="{{ $project->nama_project }}"><i
+                                    class="bx bx-plus"></i></a>
                         </div>
                     </div>
 
                     @endforeach
-                    
+
 
                 </div>
 

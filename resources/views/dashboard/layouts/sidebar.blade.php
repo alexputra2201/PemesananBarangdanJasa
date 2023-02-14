@@ -38,9 +38,14 @@
             <span>Careers</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/dashboard/pemesanan">
+        <a class="nav-link" href="/dashboard/products">
             <i class="bi bi-shop"></i>
-            <span>Pemesanan</span></a>
+            <span>Perumahan</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/dashboard/jasas">
+            <i class="bi bi-shop"></i>
+            <span>Jasa</span></a>
     </li>
 
 

@@ -4,16 +4,19 @@
           <!-- Uncomment below if you prefer to use an image logo -->
           <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
           <div class="container">
-            <nav class="navbar brand">
-                <img src="assets/img/heheee.png" alt="" style="height: 70px;"></a>
-            </nav>
+              <nav class="navbar brand">
+                  <img src="assets/img/heheee.png" alt="" style="height: 70px;"></a>
+              </nav>
           </div>
           <nav id="navbar" class="navbar">
               <ul>
                   <li><a class="nav-link scrollto {{ Request::is('home') ? 'active' : ''}}" href="#hero">Home</a></li>
                   <li><a class="nav-link scrollto" href="#about">About</a></li>
                   <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                  <li><a class="nav-link scrollto {{ Request::is('career') ? 'active' : ''}}" href="/career">Career</a></li>
+                  <li><a class="nav-link scrollto {{ Request::is('career') ? 'active' : ''}}" href="/career">Career</a>
+                  </li>
+                  <li><a class="nav-link scrollto {{ Request::is('product') ? 'active' : ''}}"
+                          href="/product">Product</a></li>
 
                   @auth
                   <li class="nav-item dropdown">
@@ -24,11 +27,15 @@
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                           @can('admin')
                           <li><a class="dropdown-item" href="/dashboard">
-                                  <i class="bi bi-layout-text-sidebar-reverse"></i> My Dashboard</a></li>
+                                My Dashboard</a></li>
+                         
+                          @endcan
+                          <li>
+                              <a href="/history" class="dropdown-item">History</a>
+                          </li>
                           <li>
                               <hr class="dropdown-divider">
                           </li>
-                          @endcan
                           <li>
                               <form action="/logout" method="post">
                                   @csrf

@@ -51,4 +51,10 @@ class User extends Authenticatable
     public function responseCareer(){
         return $this->hasMany(ResponseCareer::class);
     }
+
+    public function pemesananjasa(){
+        return $this->hasMany(PemesananJasa::class);
+    }
+
+   
 }

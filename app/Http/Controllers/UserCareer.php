@@ -50,7 +50,7 @@ class UserCareer extends Controller
             'email' => ['required', 'email:dns'],
             'cv' => 'file|max:4098',
             'berkas_lain' => 'file|max:1024',
-            'no_hp' => 'integer'
+            'no_hp' => 'required|numeric'
         ]);
 
         if ($request->file('cv')) {

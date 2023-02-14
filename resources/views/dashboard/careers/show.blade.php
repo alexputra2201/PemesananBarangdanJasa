@@ -44,6 +44,7 @@
                     <th scope="col">CV</th>
                     <th scope="col">Berkas Lain</th>
                     <th scope="col">Nomor Handphone</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,8 +54,10 @@
                     <td>{{ $response_career->nama_lengkap }}</td>
                     <td>{{ $response_career->email }}</td>
                     <td><a href="{{ asset('storage/' . $response_career->cv) }}">Click to Download</a></td>
-                    <td>{{ $response_career->berkas_lain }}</td>
+                    <td><a href="{{ asset('storage/' . $response_career->cv) }}">Click to Download</a></td>
                     <td>{{ $response_career->no_hp }}</td>
+                    <td>    <a aria-label="Chat on WhatsApp" href="https://wa.me/+62{{ $response_career->no_hp }}?text=I'm%20interested%20in%20your%20CV"> <img alt="Chat on WhatsApp" src="{{ asset('assets/WhatsAppButtonGreenSmall.png') }}" style="width: 150px; height: 25px;"/> </a></td>
+                    
                 </tr>
                 @endforeach
             </tbody>

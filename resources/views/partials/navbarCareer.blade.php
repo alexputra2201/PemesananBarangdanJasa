@@ -13,7 +13,8 @@
                 <li><a class="nav-link scrollto" href="/">Home</a></li>
                 <li><a class="nav-link scrollto" href="/">About</a></li>
                 <li><a class="nav-link scrollto" href="/">Contact</a></li>
-                <li><a class="nav-link scrollto active " href="/career">Career</a></li>
+                <li><a class="nav-link scrollto {{ Request::is('career') ? 'active' : ''}}" href="/career">Career</a></li>
+                <li><a class="nav-link scrollto {{ Request::is('product') ? 'active' : ''}}" href="/product">Product</a></li>
 
                 @auth
                 <li class="nav-item dropdown">
@@ -29,6 +30,12 @@
                             <hr class="dropdown-divider">
                         </li>
                         @endcan
+                        <li>
+                            <a href="/history" class="dropdown-item">History</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <li>
                             <form action="/logout" method="post">
                                 @csrf

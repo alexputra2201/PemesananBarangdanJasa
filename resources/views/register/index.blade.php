@@ -44,6 +44,18 @@
                         <form action="/register" method="post">
                             @csrf
 
+                            <h5>Nama Lengkap</h5>
+                            <div class="form-group last mb-3">
+                                <label for="nama_lengkap">Nama Lengkap</label>
+                                <input type="text" class="form-control @error('nama_lengkap') is-invalid @enderror"
+                                id="username" name="nama_lengkap" required autofocus>
+                                @error('nama_lengkap')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
                             <h5>Username</h5>
                             <div class="form-group last mb-3">
                                 <label for="username">Username</label>
@@ -59,7 +71,12 @@
                             <h5>Password</h5>
                             <div class="form-group last mb-3 mt-3">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" required> 
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required> 
+                                @error('password')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
 
 
