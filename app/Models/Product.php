@@ -9,6 +9,9 @@ class Product extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-
+    
+    public function PemesananBarang(){
+        return $this->hasMany(PemesananJasa::class);
+    }
   
 }

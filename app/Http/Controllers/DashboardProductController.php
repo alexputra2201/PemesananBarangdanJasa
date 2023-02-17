@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PemesananBarang;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -61,7 +62,8 @@ class DashboardProductController extends Controller
     public function show(Product $product)
     {
         return view('dashboard.products.show', [
-            'product' => $product
+            'product' => $product,
+            'pemesananbarangs' => PemesananBarang::Where('product_id', $product->id)->get()
         ]);
     }
 

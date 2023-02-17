@@ -85,22 +85,21 @@
             <div class="container pt-5">
 
                 <div class="row">
-                    @foreach ($products as $product)
+                  
                     <div class="col-lg-4 col-md-6 mt-4 mt-md-0 mb-2">
                         <div class="icon-box">
-                            <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="..."
+                            <img src="{{ asset('storage/' . $products[0]->image) }}" class="card-img-top" alt="..."
                                 style="max-height: 200px; max-width: 375px;">
                             <div class="card-body">
                                 <h4 class="title d-flex align-content-center justify-content-center">
-                                    {{ $product->nama_produk }}</h4>
-                                <form action="/pemesananbarang" method="get">
+                                    {{ $products[0]->nama_produk }}</h4>
+                                <form action="/pemesananbarang/create" method="get">
                                     @csrf
                                     <button class="col-md-12 btn btn-primary">Pesan</button>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    @endforeach
                     @foreach ($jasas as $jasa)
                     <div class="col-lg-4 col-md-6 mt-4 mt-md-0 mb-2">
                         <div class="icon-box">
@@ -108,11 +107,20 @@
                                 style="max-height: 200px; max-width: 375px;">
                             <div class="card-body">
                                 <h4 class="title d-flex align-content-center justify-content-center">
-                                    {{ $jasa->nama_jasa }}</h4>
-                                <form action="/product/create" method="get">
-                                    @csrf
-                                    <button class="col-md-12 btn btn-primary">Pesan</button>
-                                </form>
+                                {{ $jasa->nama_jasa }}
+                                </h4>
+                                    @if ($jasa->nama_jasa == "Jasa Design")
+                                    <form action="/product/create" method="get">
+                                        @csrf
+                                        <button class="col-md-12 btn btn-primary">Pesan</button>
+                                    </form>
+                                    @else
+                                    <form action="/pemesananjasakonstruksi/create" method="get">
+                                        @csrf
+                                        <button class="col-md-12 btn btn-primary">Pesan</button>
+                                    </form>
+                                    @endif
+                                
                             </div>
                         </div>
                     </div>

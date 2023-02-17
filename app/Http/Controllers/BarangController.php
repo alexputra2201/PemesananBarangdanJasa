@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ResponseCareer;
-use App\Http\Requests\StoreResponseCareerRequest;
-use App\Http\Requests\UpdateResponseCareerRequest;
+use App\Models\Barang;
+use App\Http\Requests\StoreBarangRequest;
+use App\Http\Requests\UpdateBarangRequest;
 
-class ResponseCareerController extends Controller
+class BarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class ResponseCareerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreResponseCareerRequest  $request
+     * @param  \App\Http\Requests\StoreBarangRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreResponseCareerRequest $request)
+    public function store(StoreBarangRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class ResponseCareerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ResponseCareer  $responseCareer
+     * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function show(ResponseCareer $responseCareer)
+    public function show(Barang $barang)
     {
         //
     }
@@ -53,10 +53,10 @@ class ResponseCareerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ResponseCareer  $responseCareer
+     * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function edit(ResponseCareer $responseCareer)
+    public function edit(Barang $barang)
     {
         //
     }
@@ -64,11 +64,11 @@ class ResponseCareerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateResponseCareerRequest  $request
-     * @param  \App\Models\ResponseCareer  $responseCareer
+     * @param  \App\Http\Requests\UpdateBarangRequest  $request
+     * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateResponseCareerRequest $request, ResponseCareer $responseCareer)
+    public function update(UpdateBarangRequest $request, Barang $barang)
     {
         //
     }
@@ -76,10 +76,10 @@ class ResponseCareerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ResponseCareer  $responseCareer
+     * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ResponseCareer $responseCareer)
+    public function destroy(Barang $barang)
     {
         //
     }

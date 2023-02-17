@@ -13,6 +13,7 @@ use App\Http\Controllers\DashboardCareerController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\DashboardProjectController;
 use App\Http\Controllers\HistoryUser;
+use App\Http\Controllers\PemesananBarangController;
 use App\Http\Controllers\PemesananJasaController;
 use App\Http\Controllers\UserJasaKonstruksi;
 use App\Models\PemesananJasa;
@@ -113,9 +114,8 @@ Route::put('/historyKonstruksi/{id}/', function(Request $request,$id){
 
 Route::resource('/history', HistoryUser::class);
 
-Route::get('/pemesananbarang', function(){
-    return view('pemesananbarang');
-});
+//resource perumahan barang
+Route::resource('/pemesananbarang', PemesananBarangController::class);
 
 
 Route::get('/dashboard', function(){

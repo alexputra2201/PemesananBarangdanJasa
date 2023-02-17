@@ -11,15 +11,19 @@
     @csrf
 
     <div class="mb-3">
-        <label for="nama" class="form-label">Nama Lengkap</label>
-        <input type="text" class="form-control @error('nama_lengkap') is-invalid @enderror" id="nama_lengkap" 
-        aria-describedby="nama_lengkap" name="nama_lengkap"  autofocus value="{{ old('nama_lengkap') }}">
-        @error('nama_lengkap')
-        <div class="invalid-feedback">
-            {{ $message}}
-        </div>
-        @enderror
+        <label for="category" class="form-label">Perumahan</label>
+        <select class="form-select" name="product_id">
+            @foreach ($products as $product)
+            @if(old('product_id') == $product->id)
+            <option value="{{ $product->id }}" selected>{{ $product->nama_produk }}</option>
+            @else
+            <option value="{{ $product->id }}">{{ $product->nama_produk }}</option>
+            @endif
+
+            @endforeach
+        </select>
     </div>
+
 
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
@@ -53,7 +57,7 @@
 
     <div class="mb-3">
        <div id="kartu" style="display:none">
-        <select class="form-select" name="kartu">
+        <select class="form-select" name="bank">
             <option value="bank_riau" selected>Bank Riau</option>
             <option value="BRI" >BRI</option>
             <option value="Mandiri" >Mandiri</option>
@@ -62,18 +66,6 @@
         </select>
        </div>
     </div>
-    
-    {{-- <div>
-        <input type="radio" id="hide" name="example" value="hide" checked />
-        <label for="hide">Hide</label>
-      </div>
-
-    <div>
-        <input type="radio" id="show" name="example" value="show" />
-        <label for="show">Show</label>
-      </div>
-  
-      <div id="box">Box is now shown</div> --}}
     
     <button type="submit" class="btn btn-primary">Apply</button>
 </form>    

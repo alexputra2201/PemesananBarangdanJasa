@@ -5,7 +5,7 @@
 
 <div class="container">
     <div class="row my-3">
-        <div class="col-lg-8">
+        <div class="col">
             <article>
                 <h1 class="mb-3">{{ $product->nama_produk }}</h1>
                 <a href="/dashboard/products" class="btn btn-success"><span data-feather="arrow-left"></span> Back to all
@@ -34,10 +34,25 @@
                                     <th scope="col">Kredit</th>
                                     <th scope="col">Nomor Handphone</th>
                                     <th scope="col">Tanggal</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                               
+                               @foreach ($pemesananbarangs as $pb)
+                               <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{ $pb->nama_lengkap }}</td>
+                                <td>{{ $pb->email }}</td>
+                                <td>{{ $pb->bank }}</td>
+                                <td>{{ $pb->kredit }}</td>
+                                <td>{{ $pb->no_hp }}</td>
+                                <td>{{ $pb->tanggal }}</td>
+                                <td>{{ $pb->status }}</td>
+                                <td> <a href="/pemesananbarang/{{ $pb->id }}/edit" class="badge bg-warning"> <img src="{{ asset('assets/edit.svg') }}" alt="eye"></a></td>
+                               </tr>
+                                  
+                               @endforeach
                             </tbody>
                         </table>
                     </div>
