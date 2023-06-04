@@ -32,6 +32,15 @@
             </div>
             @enderror
         </div>
+
+        <div class="mb-3">
+            <label for="body" class="form-label" value="{{old('body')}}">Body</label>
+            @error('body')
+            <p class="text-danger">{{$message}}</p>
+            @enderror
+            <input id="body" type="hidden" name="deskripsi">
+            <trix-editor input="body"></trix-editor>
+        </div>
         
             <button type="submit" class="btn btn-primary">Create Product</button>
     </form>
@@ -54,5 +63,9 @@
                 imgPreview.src = oFREvent.target.result;
             }
         }
+
+        document.addEventListener('trix-file-accept', function(e){
+        e.preventDefault();
+    })
     
     </script>

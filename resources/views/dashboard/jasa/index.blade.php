@@ -19,13 +19,14 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <a href="/dashboard/jasas/create" class="btn btn-primary mb-3">Create New Jasa</a>
+            {{-- <a href="/dashboard/jasas/create" class="btn btn-primary mb-3">Tambah Jasa</a> --}}
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nama Jasa</th>
                         <th scope="col">Gambar</th>
+                        <th scope="col">Deskripsi</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -38,6 +39,7 @@
                             <img src="{{ asset('storage/' . $jasa->image) }}" alt="" class="img-fluid mt-3 justify-content-center align-content-center" style="max-height:200px; max-width:200px;">
                             @endif
                         </td>
+                        <td>{!! $jasa->deskripsi !!}</td>
                         <td>
                             @if($jasa->nama_jasa == "Jasa Konstruksi")
                             <a href="/dashboard/jasakonstruksi/{{ $jasa->id }}" class="badge bg-info"> <img src="{{ asset('assets/eye.svg') }}" alt="eye"></a>

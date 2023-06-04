@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class DashboardJasaController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -41,7 +42,8 @@ class DashboardJasaController extends Controller
     {
         $validatedData = $request->validate([
             'nama_jasa' => 'required|max:255',
-            'image' => 'image|file|max:4096'
+            'image' => 'image|file|max:4096',
+            'deskripsi' => 'required'
         ]);
 
         if ($request->file('image')) {
@@ -63,7 +65,7 @@ class DashboardJasaController extends Controller
     {
         return view('dashboard.jasa.show', [
             'jasa' => $jasa,
-            'pemesananjasas' => PemesananJasa::Where('jasa_id', $jasa->id)->get()
+            'pemesananjasas' => PemesananJasa::Where('jasa_id', $jasa->id)->latest()->get()
         ]);
     }
 
@@ -91,7 +93,8 @@ class DashboardJasaController extends Controller
     {
         $validatedData = $request->validate([
             'nama_jasa' => 'required|max:255',
-            'image' => 'image|file|max:4096'
+            'image' => 'image|file|max:4096',
+            'deskripsi' => 'required'
         ]);
 
         if ($request->file('image')) {

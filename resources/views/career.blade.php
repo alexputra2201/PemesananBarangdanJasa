@@ -10,10 +10,15 @@
 @endif
 
 <div class="section-title">
-    <span>Our Career</span>
-    <h2>Our Career</h2>
+    <span>Karir Kami</span>
+    <h2>Karir Kami</h2>
 </div>
-<a href="/career/create" class="btn btn-primary">Apply career</a>
+
+
+@if($careers->count())
+
+<a href="/career/create" class="btn btn-primary">Kirim Karir</a>
+
 @foreach ($careers as $career)
 <div class="row d-flex pt-3">
     <div class="col">
@@ -26,11 +31,17 @@
                 </div>
             </div>
             <div class="d-flex flex-row-reverse mb-3 mx-3">
-                <a href="/career/{{ $career->id }}">Readmore</a>
+                <a href="/career/{{ $career->id }}">Baca Selengkapnya</a>
             </div>
         </div>
     </div>
 </div>
 @endforeach
+
+@else
+
+<p class="text-center fs-4">Tidak ada karir yang ditemukan.</p>
+
+@endif
 
 @endsection

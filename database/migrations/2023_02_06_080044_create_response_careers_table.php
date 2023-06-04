@@ -18,7 +18,7 @@ class CreateResponseCareersTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('career_id');
             $table->string('nama_lengkap');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('cv');
             $table->string('berkas_lain')->nullable();
             $table->string('no_hp');

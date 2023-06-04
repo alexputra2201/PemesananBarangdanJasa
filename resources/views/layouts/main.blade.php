@@ -35,6 +35,12 @@
 
     <link rel="icon" href="{{ asset('assets/img/logorjs.png') }}">
 
+    {{-- botman --}}
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
     <style>
         trix-toolbar [data-trix-button-group="file-tools"] {
             display: none;
@@ -85,7 +91,7 @@
             <div class="container pt-5">
 
                 <div class="row">
-                  
+
                     <div class="col-lg-4 col-md-6 mt-4 mt-md-0 mb-2">
                         <div class="icon-box">
                             <img src="{{ asset('storage/' . $products[0]->image) }}" class="card-img-top" alt="..."
@@ -93,7 +99,7 @@
                             <div class="card-body">
                                 <h4 class="title d-flex align-content-center justify-content-center">
                                     {{ $products[0]->nama_produk }}</h4>
-                                <form action="/pemesananbarang/create" method="get">
+                                <form action="/pemesananperumnasrimbo" method="get">
                                     @csrf
                                     <button class="col-md-12 btn btn-primary">Pesan</button>
                                 </form>
@@ -107,20 +113,20 @@
                                 style="max-height: 200px; max-width: 375px;">
                             <div class="card-body">
                                 <h4 class="title d-flex align-content-center justify-content-center">
-                                {{ $jasa->nama_jasa }}
+                                    {{ $jasa->nama_jasa }}
                                 </h4>
-                                    @if ($jasa->nama_jasa == "Jasa Design")
-                                    <form action="/product/create" method="get">
-                                        @csrf
-                                        <button class="col-md-12 btn btn-primary">Pesan</button>
-                                    </form>
-                                    @else
-                                    <form action="/pemesananjasakonstruksi/create" method="get">
-                                        @csrf
-                                        <button class="col-md-12 btn btn-primary">Pesan</button>
-                                    </form>
-                                    @endif
-                                
+                                @if ($jasa->nama_jasa == "Jasa Design")
+                                <form action="/product/create" method="get">
+                                    @csrf
+                                    <button class="col-md-12 btn btn-primary">Pesan</button>
+                                </form>
+                                @else
+                                <form action="/pemesananjasakonstruksi/create" method="get">
+                                    @csrf
+                                    <button class="col-md-12 btn btn-primary">Pesan</button>
+                                </form>
+                                @endif
+
                             </div>
                         </div>
                     </div>
@@ -165,25 +171,25 @@
                     <div class="col-lg-3 col-6 text-center">
                         <span data-purecounter-start="0" data-purecounter-end="2014" data-purecounter-duration="1"
                             class="purecounter"></span>
-                        <p>Since</p>
+                        <p>Sejak</p>
                     </div>
 
                     <div class="col-lg-3 col-6 text-center">
                         <span data-purecounter-start="0" data-purecounter-end="21" data-purecounter-duration="1"
                             class="purecounter"></span>
-                        <p>Total Top Services</p>
+                        <p>Total Layanan Teratas</p>
                     </div>
 
                     <div class="col-lg-3 col-6 text-center">
                         <span data-purecounter-start="0" data-purecounter-end="21" data-purecounter-duration="1"
                             class="purecounter"></span>
-                        <p>Positive Feedback</p>
+                        <p>Masukan Positif</p>
                     </div>
 
                     <div class="col-lg-3 col-6 text-center">
                         <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1"
                             class="purecounter"></span>
-                        <p>Total Employee</p>
+                        <p>Total Karyawan</p>
                     </div>
 
                 </div>
@@ -196,8 +202,8 @@
             <div class="container">
 
                 <div class="section-title">
-                    <span>Our Business</span>
-                    <h2>Our Business</h2>
+                    <span>Bisnis Kami</span>
+                    <h2>Bisnis Kami</h2>
                 </div>
 
                 <div class="row grid">
@@ -244,8 +250,8 @@
             <div class="container">
 
                 <div class="section-title">
-                    <span>Our Project</span>
-                    <h2>Our Project</h2>
+                    <span>Proyek Kami </span>
+                    <h2>Proyek Kami</h2>
 
                 </div>
 
@@ -270,7 +276,7 @@
                             <h4>{{ $project->nama_project }}</h4>
                             <a href="{{ asset('storage/' . $project->image) }}" data-gallery="portfolioGallery"
                                 class="portfolio-lightbox preview-link" title="{{ $project->nama_project }}"><i
-                                    class="bx bx-plus"></i></a>
+                                    class="bx bx-search"></i></a>
                         </div>
                     </div>
 
@@ -281,8 +287,6 @@
 
             </div>
         </section><!-- End Portfolio Section -->
-        </div>
-        </section><!-- End Portfolio Section -->
 
 
         <!-- ======= Contact Section ======= -->
@@ -290,13 +294,17 @@
             <div class="container">
 
                 <div class="section-title">
-                    <span>Contact</span>
-                    <h2>Contact</h2>
+                    <span>Kontak</span>
+                    <h2>Kontak</h2>
                 </div>
                 <div class="row">
                     <div class="col">
                         <iframe src="https://maps.google.com/maps?q=pt%20rovina&t=&z=17&ie=UTF8&iwloc=&output=embed"
                             frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+                    </div>
+                    <div class="col">
+                        <img src="{{ asset('assets/Ruko.png') }}" alt="{{ asset('assets/Ruko.png') }}"
+                            style="border:0; width: 100%; height: 290px;">
                     </div>
 
                     <div class="col">
@@ -346,8 +354,29 @@
         </div>
     </footer><!-- End Footer -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+
+ 
+        <div class="whatsappp" style="
+        position: fixed;
+        left: 20px;
+        bottom: 16px;
+        z-index: 2200000000;
+      ">
+        
+            <a href="https://wa.me/+6282381103311?">
+                <i class="fa fa-whatsapp" style="font-size:72px"></i>
+            </a>
+
+        </div>
+
+
+
+    {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+            --}}
+
+
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -361,5 +390,17 @@
     <script src="assets/js/main.js"></script>
 
 </body>
+
+
+{{-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css"> --}}
+<script>
+    var botmanWidget = {
+        aboutText: 'Write Something',
+        introMessage: "✋ Hi! Saya RoviBot Dari Rovina"
+    };
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+
 
 </html>

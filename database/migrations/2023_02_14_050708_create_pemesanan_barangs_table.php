@@ -22,7 +22,12 @@ class CreatePemesananBarangsTable extends Migration
             $table->string('no_hp');
             $table->string('bank')->nullable();
             $table->string('kredit');
+            $table->string('formbtn')->nullable();
+            $table->string('formaplikasikprmandiri')->nullable();
+            $table->string('lampiranflppmandiri')->nullable();
+            $table->string('suratPernyataanKPRmandiri')->nullable();
             $table->string('status')->default("Pending");
+            // $table->string('deskripsi');
             $table->timestamp('tanggal')->nullable();
             $table->timestamps();
         });

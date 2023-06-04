@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PemesananBarang;
 use App\Models\PemesananJasa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -18,39 +19,10 @@ class HistoryUser extends Controller
         return view('showHistory',[
             'pemesananjasas' => PemesananJasa::where('user_id', auth()->user()->id)->get(),
             'pemesanandesign' => PemesananJasa::where('jasa_id', 1)-> where('user_id', auth()->user()->id)->get(),
-            'pemesanankonstruksi' => PemesananJasa::where('jasa_id', 2)-> where('user_id', auth()->user()->id)->get()
+            'pemesanankonstruksi' => PemesananJasa::where('jasa_id', 2)-> where('user_id', auth()->user()->id)->get(),
+            'pemesananbarangs' => PemesananBarang::where('product_id', 1)-> where('user_id', auth()->user()->id)->get(),
+            'rovinaresidences' => PemesananBarang::where('product_id', 2)-> where('user_id', auth()->user()->id)->get()
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\PemesananJasa  $pemesananJasa
-     * @return \Illuminate\Http\Response
-     */
-    public function show(PemesananJasa $pemesananJasa)
-    {
-        //
     }
 
     /**
@@ -93,14 +65,4 @@ class HistoryUser extends Controller
         return redirect('/history')->with('success', 'Harap Menunggu 7 Hari Kerja');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\PemesananJasa  $pemesananJasa
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(PemesananJasa $pemesananJasa)
-    {
-        //
-    }
 }

@@ -61,8 +61,13 @@
                                 <td><a href="{{ asset('storage/' . $pemesananjasa->bukti_transaksi) }}">Click to See</a></td>
                                 @endif
 
-                                <td>{{ $pemesananjasa->total_harga }}</td>
+                                <td>{{ $pemesananjasa->total_harga}}</td>
+
+                                @if($pemesananjasa->bukti_transaksi_pelunasan != null)
                                 <td><a href="{{ asset('storage/' . $pemesananjasa->bukti_transaksi_pelunasan) }}">Click to See</a></td>
+                                @else
+                                    <td></td>
+                                @endif
                                   <!-- Membuat status menjadi kuning, merah dan hijau-->
                                   @if($pemesananjasa->status == "Pending")
                                   <td> <span class="badge bg-warning">{{ $pemesananjasa->status }}</span></td>

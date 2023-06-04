@@ -25,6 +25,7 @@
     <link href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
@@ -32,6 +33,8 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
   <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 
+
+ 
   <style>
     trix-toolbar [data-trix-button-group="file-tools"]{
         display:none;
@@ -50,7 +53,7 @@
 
     @include('partials.navbarCareer')
 <main>
-    <section id="services" class="services section-bg">
+    <section id="career" class="services section-bg">
         <div class="container pt-5">
             @yield('container')
             
@@ -58,6 +61,8 @@
     </section><!-- End Services Section -->
 
 </main><!-- End #main -->
+
+
 
 <!-- ======= Footer ======= -->
 <footer id="footer">
@@ -78,8 +83,10 @@
     </div>
 </footer><!-- End Footer -->
 
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
+
+
+
+
         <!-- Vendor JS Files -->
         <script src="{{ asset('assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
         <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -93,6 +100,29 @@
         <script src="{{ asset('assets/js/main.js') }}"></script>
         
         <script src="{{ asset('assets/kredit.js') }}"></script>
+
+        <script>
+            var botmanWidget = {
+                aboutText: 'Write Something',
+                introMessage: "✋ Hi! Saya RoviBot Dari Rovina"
+            };
+        </script>
+
+<script type="text/javascript">
+
+    function showDiv(select){
+       if(select.value=="mandiri"){
+        document.getElementById('mandiri').style.display = "block";
+        document.getElementById('btnSyariah').style.display = "none";
+       } else{
+        document.getElementById('mandiri').style.display = "none";
+        document.getElementById('btnSyariah').style.display = "block";
+       }
+    } 
+    </script>
+        
+        <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+           
 </body>
 
 </html>

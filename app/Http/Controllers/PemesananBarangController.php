@@ -27,6 +27,9 @@ class PemesananBarangController extends Controller
      */
     public function create()
     {
+        if(auth()->guest()){
+            return redirect('login');
+        }
         return view('pemesananbarang',[
             'products' => Product::all()
         ]);
@@ -53,6 +56,20 @@ class PemesananBarangController extends Controller
         }
         else{
             $validatedData['bank'] = $request->input('bank');
+        }
+
+        if ($request->file('formAplikasiKPR')) {
+            $validatedData['formaplikasikprmandiri'] = $request->file('formAplikasiKPR')->store('formAplikasiKPR');
+        }
+        if ($request->file('lampiranFLPP')) {
+            $validatedData['lampiranflppmandiri'] = $request->file('lampiranFLPP')->store('lampiranFLPP');
+        }
+        if ($request->file('suratPernyataanKPR')) {
+            $validatedData['suratPernyataanKPRmandiri'] = $request->file('suratPernyataanKPR')->store('suratPernyataanKPR');
+        }
+        
+        if ($request->file('btnSyariah')) {
+            $validatedData['formbtn'] = $request->file('btnSyariah')->store('btnSyariah');
         }
 
         $validatedData['user_id'] = auth()->user()->id;

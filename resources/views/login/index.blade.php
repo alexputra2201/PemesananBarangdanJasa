@@ -73,14 +73,14 @@
                             </div>
 
 
-                            <input type="submit" value="Log In" class="btn btn-block btn-primary">
+                            <input type="submit" value="Login" class="btn btn-block btn-primary">
 
                             <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
 
                             <div class="social-login">
                                 <a href="/register"
                                     class="facebook btn d-flex justify-content-center align-items-center">
-                                    Register
+                                    Mendaftar
                                 </a>
                             </div>
                         </form>

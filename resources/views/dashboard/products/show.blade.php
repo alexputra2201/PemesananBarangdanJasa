@@ -3,10 +3,8 @@
 
 @section('container')
 
-<div class="container">
     <div class="row my-3">
         <div class="col">
-            <article>
                 <h1 class="mb-3">{{ $product->nama_produk }}</h1>
                 <a href="/dashboard/products" class="btn btn-success"><span data-feather="arrow-left"></span> Back to all
                     my products</a>
@@ -32,6 +30,10 @@
                                     <th scope="col">Email</th>
                                     <th scope="col">Bank</th>
                                     <th scope="col">Kredit</th>
+                                    <th scope="col">KPR BTN Syariah</th>
+                                    <th scope="col">Form Aplikasi Mandiri</th>
+                                    <th scope="col">FLPP Mandiri</th>
+                                    <th scope="col">Surat Pernyataan KPR Mandiri</th>
                                     <th scope="col">Nomor Handphone</th>
                                     <th scope="col">Tanggal</th>
                                     <th scope="col">Status</th>
@@ -46,6 +48,40 @@
                                 <td>{{ $pb->email }}</td>
                                 <td>{{ $pb->bank }}</td>
                                 <td>{{ $pb->kredit }}</td>
+
+                                <td>
+                                    @if($pb->formbtn != null) 
+                                    <a href="{{ asset('storage/' . $pb->formbtn) }}">Click to Download</a>
+                                    @else
+                                    -
+                                    @endif
+                                </td>
+
+                                <td>
+                                    @if($pb->formaplikasikprmandiri != null)
+                                    <a href="{{ asset('storage/' . $pb->formaplikasikprmandiri) }}">Click to Download</a>
+                                    @else
+                                    -
+                                    @endif
+                                </td>
+
+                                <td>
+                                    @if ($pb->lampiranflppmandiri != null)
+                                    <a href="{{ asset('storage/' . $pb->lampiranflppmandiri) }}">Click to Download</a>
+                                    @else
+                                    -
+                                    @endif
+                                </td>
+
+                                <td>
+                                    @if ($pb->suratPernyataanKPRmandiri != null)
+                                    <a href="{{ asset('storage/' . $pb->suratPernyataanKPRmandiri) }}">Click to Download</a>
+                                    @else
+                                    -
+                                    @endif
+                                    
+                                </td>
+
                                 <td>{{ $pb->no_hp }}</td>
                                 <td>{{ $pb->tanggal }}</td>
                                 <td>{{ $pb->status }}</td>
@@ -57,10 +93,6 @@
                         </table>
                     </div>
                 </div>
-
-            </article>
-
-        </div>
     </div>
 </div>
 

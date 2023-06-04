@@ -19,13 +19,14 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <a href="/dashboard/products/create" class="btn btn-primary mb-3">Create new produk</a>
+            {{-- <a href="/dashboard/products/create" class="btn btn-primary mb-3">Tambah Produk</a> --}}
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nama Produk</th>
                         <th scope="col">Gambar</th>
+                        <th scope="col">Deskripsi</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -37,6 +38,9 @@
                         <td> @if($product->image)
                             <img src="{{ asset('storage/' . $product->image) }}" alt="" class="img-fluid mt-3 justify-content-center align-content-center" style="max-height:200px; max-width:200px;">
                             @endif
+                        </td>   
+                        <td>
+                            {!! $product->deskripsi !!}
                         </td>
                         <td>
                             @if($product->nama_produk == "perumahan")

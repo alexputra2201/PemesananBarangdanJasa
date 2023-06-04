@@ -10,15 +10,6 @@ use Illuminate\Support\Facades\Storage;
 
 class UserJasaKonstruksi extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -27,6 +18,9 @@ class UserJasaKonstruksi extends Controller
      */
     public function create()
     {
+        if(auth()->guest()){
+            return redirect('login');
+        }
         return view('pemesananjasakonstruksi',[
             'jasas' => Jasa::all(),
             'nama_lengkap' => User::where('id', auth()->user()->id)->get(['nama_lengkap'])
@@ -72,50 +66,5 @@ class UserJasaKonstruksi extends Controller
         PemesananJasa::create($validatedData);
 
         return redirect('/product')->with('success', 'Apply successfull! Please waiting');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\PemesananJasa  $pemesananJasa
-     * @return \Illuminate\Http\Response
-     */
-    public function show(PemesananJasa $pemesananJasa)
-    {
-        
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\PemesananJasa  $pemesananJasa
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PemesananJasa $pemesananJasa)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PemesananJasa  $pemesananJasa
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, PemesananJasa $pemesananJasa)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\PemesananJasa  $pemesananJasa
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(PemesananJasa $pemesananJasa)
-    {
-        //
     }
 }

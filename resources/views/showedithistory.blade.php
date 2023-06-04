@@ -22,6 +22,12 @@
         @enderror
     </div>
 
+    <div class="alert alert-danger col-5" role="alert">
+        <i class="bi bi-exclamation-circle"></i>
+        Wajib Melakukan Pelunasan <br>
+        Rekening : 1080077177377 PT Rovina Jaya Sentosa Bank Mandiri. Terima Kasih
+    </div>
+
     <div class="mb-3">
         <label for="bukti_transaksi_pelunasan" class="form-label @error('bukti_transaksi_pelunasan') is-invalid @enderror">Bukti Pelunasan</label>
         <input type="hidden" name="oldImage" value="{{ $pemesananjasa->bukti_transaksi_pelunasan }}">

@@ -63,7 +63,7 @@ class DashboardCareerController extends Controller
     {
         return  view('dashboard.careers.show', [
             'career' => $career,
-            'response_careers' => ResponseCareer::Where('career_id', $career->id)->get()
+            'response_careers' => ResponseCareer::Where('career_id', $career->id)->latest()->get()
         ]);
     }
 

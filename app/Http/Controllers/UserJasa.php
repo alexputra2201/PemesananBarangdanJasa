@@ -64,7 +64,7 @@ class UserJasa extends Controller
             'no_hp' => 'required|numeric',
             'image' => 'image|file|max:4096',
             'deskripsi' => 'required',
-            'bukti_transaksi' => 'image|file|max:4096',
+            'bukti_transaksi' => 'required|image|file|max:4096',
         ]);
 
         $validatedData['user_id'] = auth()->user()->id;

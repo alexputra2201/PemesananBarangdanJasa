@@ -17,7 +17,7 @@ class UserCareer extends Controller
     public function index()
     {
         return view('career',[
-            'careers' => Career::all()
+            'careers' => Career::latest()->get()
         ]);
     }
 
@@ -79,29 +79,6 @@ class UserCareer extends Controller
             'career' => $career,
             'response_careers' => ResponseCareer::Where('career_id', $career->id)->get()
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\ResponseCareer  $responseCareer
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ResponseCareer $responseCareer)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ResponseCareer  $responseCareer
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ResponseCareer $responseCareer)
-    {
-        //
     }
 
     /**

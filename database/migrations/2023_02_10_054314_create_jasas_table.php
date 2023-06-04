@@ -17,6 +17,7 @@ class CreateJasasTable extends Migration
             $table->id();
             $table->string('nama_jasa');
             $table->string('image')->nullable();
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

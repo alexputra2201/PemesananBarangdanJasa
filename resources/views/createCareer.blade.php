@@ -1,6 +1,12 @@
 @extends('layouts.mainCareer')
 
 @section('container')
+
+<div class="section-title mt-3">
+    <span>Form Karir</span>
+    <h2>Form Karir</h2>
+</div>
+
 <form action="/career" method="post" class="mb-5" enctype="multipart/form-data">
     @csrf
 
@@ -16,7 +22,7 @@
     </div>
 
     <div class="mb-3">
-        <label for="category" class="form-label">Career</label>
+        <label for="category" class="form-label">Karir</label>
         <select class="form-select" name="career_id">
             @foreach ($careers as $career)
             @if(old('career_id') == $career->id)
@@ -70,6 +76,6 @@
         </div>
         @enderror
     </div>
-        <button type="submit" class="btn btn-primary">Apply</button>
+        <button type="submit" class="btn btn-primary">Kirim</button>
 </form>
 @endsection

@@ -41,7 +41,8 @@ class DashboardProductController extends Controller
     {
         $validatedData = $request->validate([
             'nama_produk' => 'required|max:255',
-            'image' => 'image|file|max:4096'
+            'image' => 'image|file|max:4096',
+            'deskripsi' => 'required'
         ]);
 
         if ($request->file('image')) {
@@ -63,7 +64,7 @@ class DashboardProductController extends Controller
     {
         return view('dashboard.products.show', [
             'product' => $product,
-            'pemesananbarangs' => PemesananBarang::Where('product_id', $product->id)->get()
+            'pemesananbarangs' => PemesananBarang::Where('product_id', $product->id)->latest()->get()
         ]);
     }
 
@@ -91,7 +92,8 @@ class DashboardProductController extends Controller
     {
         $validatedData = $request->validate([
             'nama_produk' => 'required|max:255',
-            'image' => 'image|file|max:4096'
+            'image' => 'image|file|max:4096',
+            'deskripsi' => 'required'
         ]);
 
         if ($request->file('image')) {

@@ -30,12 +30,12 @@
     <li class="nav-item">
         <a class="nav-link" href="/dashboard/projects">
             <i class="bi bi-pass-fill"></i>
-            <span>Project</span></a>
+            <span>Proyek</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="/dashboard/careers">
             <i class="bi bi-file-earmark-text-fill"></i>
-            <span>Careers</span></a>
+            <span>Karir</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="/dashboard/products">
