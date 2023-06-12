@@ -48,12 +48,12 @@
                             @endif
                             <a href="/dashboard/jasas/{{ $jasa->id}}/edit" class="badge bg-warning"> <img src="{{ asset('assets/edit.svg') }}" alt="eye"></a>
         
-                            <form action="/dashboard/jasas/{{$jasa->id}}" method="post" class="d-inline">
+                            {{-- <form action="/dashboard/jasas/{{$jasa->id}}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="badge bg-danger border-0" onclick="return confirm('Are you sure you want to delete this?')"><img src="{{ asset('assets/trash.svg') }}" alt="eye"></button>
         
-                            </form>
+                            </form> --}}
                         </td>
                     </tr>
                     @endforeach

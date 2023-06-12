@@ -42,6 +42,16 @@
                             class="bx bx-plus"></i></a> --}}
                 </div>
             </div>
+            <div class="col-lg-4 col-md-6 portfolio-item">
+                <img src="{{ asset('Rumah/20.jpg') }}" class="img-fluid" alt="">
+                {{-- <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt=""> --}}
+                <div class="portfolio-info">
+                    <h4>Ruang Tamu</h4>
+                    {{-- <a href="{{ asset('storage/' . $product->image) }}" data-gallery="portfolioGallery"
+                        class="portfolio-lightbox preview-link" title="{{ $product->nama_produk }}"><i
+                            class="bx bx-plus"></i></a> --}}
+                </div>
+            </div>
         </div>
     </div>
   

@@ -3,7 +3,7 @@
 
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Produk</h1>
+    <h1 class="h2">Perumahan</h1>
 </div>
 
 @if (session()->has('success'))
@@ -15,7 +15,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Data Produk</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Data Perumahan</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -24,7 +24,7 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nama Produk</th>
+                        <th scope="col">Nama Perumahan</th>
                         <th scope="col">Gambar</th>
                         <th scope="col">Deskripsi</th>
                         <th scope="col">Action</th>
@@ -49,12 +49,12 @@
                             <a href="/dashboard/products/{{ $product->id}}" class="badge bg-info"> <img src="{{ asset('assets/eye.svg') }}" alt="eye"></a>
                             <a href="/dashboard/products/{{ $product->id}}/edit" class="badge bg-warning"> <img src="{{ asset('assets/edit.svg') }}" alt="eye"></a>
         
-                            <form action="/dashboard/products/{{$product->id}}" method="post" class="d-inline">
+                            {{-- <form action="/dashboard/products/{{$product->id}}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="badge bg-danger border-0" onclick="return confirm('Are you sure you want to delete this?')"><img src="{{ asset('assets/trash.svg') }}" alt="eye"></button>
         
-                            </form>
+                            </form> --}}
                         </td>
                     </tr>
                     @endforeach

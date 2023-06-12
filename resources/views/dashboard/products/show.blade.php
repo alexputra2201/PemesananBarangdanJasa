@@ -11,14 +11,14 @@
                 <a href="/dashboard/products/{{ $product->id}}/edit" class="btn btn-warning"><span
                         data-feather="edit"></span> Edit</a>
 
-                <form action="/dashboard/products/{{$product->id}}" method="post" class="d-inline">
+                {{-- <form action="/dashboard/products/{{$product->id}}" method="post" class="d-inline">
                     @method('delete')
                     @csrf
                     <button class="btn btn-danger"
                         onclick="return confirm('Are you sure you want to delete this?')"><span
                             data-feather="x-circle"></span> Delete</button>
 
-                </form>
+                </form> --}}
 
                 <div class="card-body">
                     <div class="table-responsive">
