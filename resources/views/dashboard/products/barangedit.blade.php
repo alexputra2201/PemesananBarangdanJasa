@@ -23,7 +23,7 @@
 
         <div class="mb-3">
             <label for="tanggal" class="form-label">Tanggal</label>
-            <input id="datepicker"  width="276" nama="tanggal" value="{{ old('tanggal'), $pemesananbarang->tanggal }}" required/>
+            <input id="datepicker"  width="276" name="tanggal" required/>
         </div>
       
         <div class="mb-3">

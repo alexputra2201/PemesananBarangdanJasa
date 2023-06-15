@@ -83,7 +83,7 @@
                                 </td>
 
                                 <td>{{ $pb->no_hp }}</td>
-                                <td>{{ $pb->tanggal }}</td>
+                                <td>{{date('d-m-Y', strtotime($pb->tanggal)); }}</td>
                                 <td>{{ $pb->status }}</td>
                                 <td> <a href="/pemesananbarang/{{ $pb->id }}/edit" class="badge bg-warning"> <img src="{{ asset('assets/edit.svg') }}" alt="eye"></a></td>
                                </tr>

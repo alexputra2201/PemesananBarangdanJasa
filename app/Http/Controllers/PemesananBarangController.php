@@ -114,7 +114,9 @@ class PemesananBarangController extends Controller
     public function update(UpdatePemesananBarangRequest $request, PemesananBarang $pemesananBarang, $id)
     {
         $findId = $pemesananBarang::find($id);
-        $findId->tanggal = Carbon::parse($request->date)->format('Y-m-s H:i:s', $request->tanggal);
+        // $findId->tanggal = Carbon::parse($request->tanggal)->format('Y-m-d H:i:s');
+        $findId->tanggal = Carbon::parse($request->input('tanggal'))->format('Y-m-d H:i:s');
+        // $findId->tanggal = $request->input('tanggal')->format('Y-m-d H:i:s');
         $findId->status = $request->input('status');
         $findId->save();
 

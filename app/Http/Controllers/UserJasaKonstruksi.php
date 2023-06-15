@@ -42,7 +42,7 @@ class UserJasaKonstruksi extends Controller
             'jasa_id' => 'required',
             'email' => ['required', 'email:dns'],
             'no_hp' => 'required|numeric',
-            'image' => 'image|file|max:4096',
+            'image' => 'required|image|file|max:4096',
             'deskripsi' => 'required',
         ]);
 
