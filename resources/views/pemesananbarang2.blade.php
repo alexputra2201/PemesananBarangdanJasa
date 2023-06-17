@@ -15,9 +15,9 @@
         <select class="form-select" name="product_id" id="product_id" onchange="Div2()">
             @foreach ($products as $product)
             @if(old('product_id') == $product->id)
-            <option value="{{ $product->id }}" selected>{{ $product->nama_produk }}</option>
+            <option value="{{ $product->id }}" >{{ $product->nama_produk }}</option>
             @else
-            <option value="{{ $product->id }}">{{ $product->nama_produk }}</option>
+            <option value="{{ $product->id }}" selected>{{ $product->nama_produk }}</option>
             @endif
 
             @endforeach
@@ -51,16 +51,16 @@
     <div class="mb-3">
         <label for="Site Plan" class="form-label">Site Plan</label><br>
         @foreach ($products as $product) 
-        @if($product->id == 1)
+        @if($product->id == 2)
         <img src="{{ asset('storage/' . $product->site_plan) }}" alt="" class="img-fluid mt-3 justify-content-center align-content-center" style="max-height:400px; max-width:400px;">
         @endif
 
         @endforeach
     </div>
 
-    {{-- yang mau ditambahkan --}}
+     {{-- yang mau ditambahkan --}}
 
-    <div class="mb-3">
+     <div class="mb-3">
         <label for="booking" class="form-label">Booking</label>
         <input type="text" class="form-control @error('booking') is-invalid @enderror" id="booking"
             aria-describedby="booking" name="booking" value="{{ old('booking') }}">
@@ -98,7 +98,7 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Syarat KPR</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Deskripsi</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -142,8 +142,6 @@
             </select>
         </div>
     </div>
-
-   
 
     <div class="mb-3">
         <div id="mandiri" style="display: none">
@@ -199,29 +197,24 @@
 
     </div>
 
-
-
-
-
     <button type="submit" class="btn btn-primary">Kirim</button>
 </form>
 
 @endsection
 
-
 <script>
 
-function previewImage() {
-        const image = document.querySelector('#image');
-        const imgPreview = document.querySelector('.img-preview');
-
-        imgPreview.style.display = 'block';
-
-        const oFReader = new FileReader();
-        oFReader.readAsDataURL(image.files[0]);
-
-        oFReader.onload = function (oFREvent) {
-            imgPreview.src = oFREvent.target.result;
+    function previewImage() {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+    
+            imgPreview.style.display = 'block';
+    
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+    
+            oFReader.onload = function (oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
         }
-    }
-</script>
+    </script>

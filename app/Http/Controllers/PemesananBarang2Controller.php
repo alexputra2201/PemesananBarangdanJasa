@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PemesananBarang;
 use App\Models\Product;
+
 use App\Http\Requests\StorePemesananBarangRequest;
+
 use App\Http\Requests\UpdatePemesananBarangRequest;
+use Illuminate\Http\Request;
+use App\Models\PemesananBarang;
 use Carbon\Carbon;
 
-class PemesananBarangController extends Controller
+
+
+class PemesananBarang2Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +22,7 @@ class PemesananBarangController extends Controller
      */
     public function index()
     {
-     
+        //
     }
 
     /**
@@ -30,7 +35,7 @@ class PemesananBarangController extends Controller
         if(auth()->guest()){
             return redirect('login');
         }
-        return view('pemesananbarang',[
+        return view('pemesananbarang2',[
             'products' => Product::all()
         ]);
     }
@@ -38,7 +43,7 @@ class PemesananBarangController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePemesananBarangRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StorePemesananBarangRequest $request)
@@ -92,18 +97,18 @@ class PemesananBarangController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PemesananBarang  $pemesananBarang
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(PemesananBarang $pemesananBarang)
+    public function show(Product $product)
     {
-       
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PemesananBarang  $pemesananBarang
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
     public function edit(PemesananBarang $pemesananBarang,$id)
@@ -116,8 +121,8 @@ class PemesananBarangController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePemesananBarangRequest  $request
-     * @param  \App\Models\PemesananBarang  $pemesananBarang
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
     public function update(UpdatePemesananBarangRequest $request, PemesananBarang $pemesananBarang, $id)
@@ -129,16 +134,16 @@ class PemesananBarangController extends Controller
         $findId->status = $request->input('status');
         $findId->save();
 
-        return redirect('/dashboard/products/')->with('success', 'Data Pemesanan has been updated!');;
+        return redirect('/dashboard/products/')->with('success', 'Data Pemesanan has been updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PemesananBarang  $pemesananBarang
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PemesananBarang $pemesananBarang)
+    public function destroy(Product $product)
     {
         //
     }

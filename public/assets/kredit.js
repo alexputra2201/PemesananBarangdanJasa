@@ -6,10 +6,12 @@ function handleRadioClick() {
     if (document.getElementById("yes").checked) {
         kartu.style.display = "block";
         mandiri.style.display = "block";
+
     } else {
         kartu.style.display = "none";
         mandiri.style.display = "none";
         btnSyariah.style.display = "none";
+
     }
 }
 
@@ -24,5 +26,16 @@ function Div() {
         window.location.href = "/product/create/";
     } else {
         window.location.href = "/pemesananjasakonstruksi/create";
+    }
+}
+
+
+function Div2() {
+    var product = document.getElementById("product_id").value;
+    console.log(product);
+    if (product == 1) {
+        window.location.href = "/pemesananbarang/create";
+    } else {
+        window.location.href = "/pemesananbarang2/create";
     }
 }

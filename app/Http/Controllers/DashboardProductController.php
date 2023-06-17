@@ -42,11 +42,15 @@ class DashboardProductController extends Controller
         $validatedData = $request->validate([
             'nama_produk' => 'required|max:255',
             'image' => 'image|file|max:4096',
+            'site_plan' => 'image|file|max:4096',
             'deskripsi' => 'required'
         ]);
 
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('product-images');
+        }
+        if ($request->file('site_plan')) {
+            $validatedData['site_plan'] = $request->file('site_plan')->store('site_plan');
         }
 
         Product::create($validatedData);
@@ -93,6 +97,7 @@ class DashboardProductController extends Controller
         $validatedData = $request->validate([
             'nama_produk' => 'required|max:255',
             'image' => 'image|file|max:4096',
+            'site_plan' => 'image|file|max:4096',
             'deskripsi' => 'required'
         ]);
 
@@ -102,6 +107,13 @@ class DashboardProductController extends Controller
             }
             $validatedData['image'] = $request->file('image')->store('products-images');
         }
+        if ($request->file('site_plan')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['site_plan'] = $request->file('site_plan')->store('site_plan');
+        }
+
 
         Product::where('id', $product->id)
             ->update($validatedData);

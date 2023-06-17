@@ -40,6 +40,24 @@
         </div>
 
         <div class="mb-3">
+            <label for="site_plan" class="form-label @error('image2') is-invalid @enderror">Site Plan</label>
+            <input type="hidden" name="oldImage" value="{{ $product->site_plan }}">
+            @if($product->site_plan)
+            <img src="{{ asset('storage/' . $product->site_plan) }}" class="img-preview2 img-fluid mb-3 col-sm-5 d-block">
+            <input class="form-control" type="file" id="image2" name="site_plan" onchange="previewImage2()">
+            @else
+            <img class="img-preview2 img-fluid mb-3 col-sm-5">
+            <input class="form-control" type="file" id="image2" name="site_plan" onchange="previewImage2()">
+            @endif
+
+            @error('image2')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+
+        <div class="mb-3">
             <label for="body" class="form-label">Body</label>
             @error('body')
             <p class="text-danger">{{$message}}</p>
@@ -60,6 +78,19 @@
     function previewImage() {
         const image = document.querySelector('#image');
         const imgPreview = document.querySelector('.img-preview');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+    function previewImage2() {
+        const image = document.querySelector('#image2');
+        const imgPreview = document.querySelector('.img-preview2');
 
         imgPreview.style.display = 'block';
 

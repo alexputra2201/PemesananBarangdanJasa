@@ -22,6 +22,9 @@ class CreatePemesananBarangsTable extends Migration
             $table->string('no_hp');
             $table->string('bank')->nullable();
             $table->string('kredit');
+            $table->string('booking');
+            $table->string('booking_fee');
+            $table->string('syaratkpr');
             $table->string('formbtn')->nullable();
             $table->string('formaplikasikprmandiri')->nullable();
             $table->string('lampiranflppmandiri')->nullable();

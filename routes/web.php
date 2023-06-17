@@ -20,6 +20,7 @@ use App\Models\PemesananJasa;
 use Illuminate\Http\Request;
 use App\Http\Controllers\BotManController;
 use App\Http\Controllers\DashboardJasaKonstruksi;
+use App\Http\Controllers\PemesananBarang2Controller;
 use App\Http\Controllers\PerumnasRimboController;
 use App\Http\Controllers\PerumnasRovinaController;
 use App\Models\PemesananBarang;
@@ -89,6 +90,8 @@ Route::resource('/history', HistoryUser::class)->except('create', 'store', 'dest
 
 //resource perumahan barang
 Route::resource('/pemesananbarang', PemesananBarangController::class);
+Route::resource('/pemesananbarang2',PemesananBarang2Controller::class);
+
 Route::resource('/pemesananperumnasrimbo', PerumnasRimboController::class)->only('index');
 Route::resource('/pemesananperumnasrovina', PerumnasRovinaController::class)->only('index');
 

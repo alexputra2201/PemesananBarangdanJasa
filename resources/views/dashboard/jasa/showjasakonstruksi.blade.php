@@ -50,7 +50,11 @@
                                 <td><a aria-label="Chat on WhatsApp" href="https://wa.me/+62{{ $pemesananjasa->no_hp }}"> {{ $pemesananjasa->no_hp }}</td>
                                 <td><a href="{{ asset('storage/' . $pemesananjasa->image) }}">Click to See</a></td>
                                 
+                                @if($pemesananjasa->penawaran != null)
                                 <td><a href="{{ asset('storage/' . $pemesananjasa->penawaran) }}">Click to See</a></td>
+                                    @else
+                                    <td></td>
+                                @endif
                                 <td>{{ $pemesananjasa->dp }}</td>
                                 @if ($pemesananjasa->bukti_transaksi == null)
                                 <td></td>
