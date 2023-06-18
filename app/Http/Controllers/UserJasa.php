@@ -132,7 +132,14 @@ class UserJasa extends Controller
         //mengecek apakah total harga null atau tidak
         if($findId->total_harga == null || $findId->status == null){
 
-            $findId->total_harga = $request->input('total_harga')-$findId->dp;
+
+            if($findId->total_harga < 0 ){
+                $findId->total_harga = 0;
+            }
+            else{
+                $findId->total_harga = $request->input('total_harga')-$findId->dp;
+            }
+
             $findId->image_develop = $request->input('image_develop');
             $findId->status = $request->input('status');  
         } else {

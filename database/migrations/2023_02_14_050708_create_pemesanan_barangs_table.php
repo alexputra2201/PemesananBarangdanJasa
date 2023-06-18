@@ -24,11 +24,10 @@ class CreatePemesananBarangsTable extends Migration
             $table->string('kredit');
             $table->string('booking');
             $table->string('booking_fee');
-            $table->string('syaratkpr');
-            $table->string('formbtn')->nullable();
+            $table->string('syaratpengambilanrumah');
             $table->string('formaplikasikprmandiri')->nullable();
-            $table->string('lampiranflppmandiri')->nullable();
-            $table->string('suratPernyataanKPRmandiri')->nullable();
+            $table->string('formaplikasikprbtn')->nullable();
+            $table->string('syaratkpr')->nullable();
             $table->string('status')->default("Pending");
             // $table->string('deskripsi');
             $table->timestamp('tanggal')->nullable();

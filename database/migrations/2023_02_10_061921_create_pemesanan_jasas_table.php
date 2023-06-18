@@ -20,7 +20,7 @@ class CreatePemesananJasasTable extends Migration
             $table->string('nama_lengkap');
             $table->string('email');
             $table->text('deskripsi');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('image_develop')->nullable();
             $table->string('bukti_transaksi')->nullable();
             $table->string('bukti_transaksi_pelunasan')->nullable();

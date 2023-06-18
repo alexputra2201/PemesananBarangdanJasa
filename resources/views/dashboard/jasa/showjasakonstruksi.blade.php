@@ -32,7 +32,7 @@
                                     <th scope="col">Deskripsi</th>
                                     <th scope="col">Nomor Handphone</th>
                                     <th scope="col">Gambar Pelanggan</th>
-                                    <th scope="col">Gambar Penawaran</th>
+                                    <th scope="col">Penawaran</th>
                                     <th scope="col">Down Payment (DP)</th>
                                     <th scope="col">Bukti Transaksi DP</th>
                                     <th scope="col">Total Harga</th>

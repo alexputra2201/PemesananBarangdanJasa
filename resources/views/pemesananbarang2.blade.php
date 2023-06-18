@@ -73,7 +73,7 @@
 
     <div class="alert alert-danger col-5" role="alert">
         <i class="bi bi-exclamation-circle"></i>
-        Wajib Melakukan Booking Fee Sebesar Rp.500.000 ke <br>
+        Wajib Melakukan Booking Fee Sebesar Rp.10.000.000 ke <br>
         Rekening : 1080077177377 PT Rovina Jaya Sentosa Bank Mandiri. Terima Kasih
     </div>
 
@@ -90,20 +90,19 @@
     </div>
 
     <div class="mb-3">
-        <div id="syaratkpr">
-            <label for="syaratkpr" class="form-label @error('syaratkpr') is-invalid @enderror">Syarat KPR</label>
+        <div id="syaratpengambilanrumah">
+            <label for="syaratpengambilanrumah" class="form-label @error('syaratpengambilanrumah') is-invalid @enderror">Syarat Pengambilan Rumah</label>
             <a href="" class="bi bi-exclamation-circle" data-bs-toggle="modal" data-bs-target="#deskripsi"></a>
 
             <div class="modal fade" id="deskripsi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Deskripsi</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Syarat Pengambilan Rumah</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                           Jika memakai cash lampirkan pdf berupa KK dan KTP,
-                           Sedangkan jika memakai kredit lampirkan pdf berupa KK , KTP, dll.
+                           Lampirkan PDF berupa KTP dan KK.
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -114,8 +113,8 @@
 
 
 
-            <input class="form-control" type="file" id="syaratkpr" name="syaratkpr">
-            @error('syaratkpr')
+            <input class="form-control" type="file" id="syaratpengambilanrumah" name="syaratpengambilanrumah">
+            @error('syaratpengambilanrumah')
             <div class="invalid-feedback">
                 {{ $message }}
             </div>
@@ -140,35 +139,30 @@
                 <option value="mandiri" selected>Bank Mandiri</option>
                 <option value="btnSyariah">BTN Syariah</option>
             </select>
+            
+            <br>
+            <a href="https://drive.google.com/drive/folders/1bUKOBFOjUg1YvVq2_BF5awqkY8CH-Nv_?usp=sharing">Download
+                Syarat KPR</a> <br>
+            <label for="" class="form-label @error('syaratkpr') is-invalid @enderror">Syarat KPR</label>
+            <input class="form-control" type="file" id="syaratkpr" name="syaratkpr">
+            @error('syaratkpr')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
         </div>
     </div>
 
+   
+
     <div class="mb-3">
         <div id="mandiri" style="display: none">
-            <a href="https://drive.google.com/drive/folders/1OKz_QKid3ZmKPE-wePADtpMfZW5T2g1W?usp=share_link">Form
+            <a href="https://drive.google.com/drive/folders/1OKz_QKid3ZmKPE-wePADtpMfZW5T2g1W?usp=share_link">Download
+                Form
                 Mandiri</a> <br>
-            <label for="formAplikasiKPR" class="form-label @error('formAplikasiKPR') is-invalid @enderror">Form Aplikasi KPR</label>
-            <input class="form-control" type="file" id="formAplikasiKPR" name="formAplikasiKPR">
-            @error('formAplikasiKPR')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-            @enderror
-
-            <br>
-            <label for="lampiranFLPP" class="form-label @error('lampiranFLPP') is-invalid @enderror">Lampiran FLPP</label>
-            <input class="form-control" type="file" id="lampiranFLPP" name="lampiranFLPP">
-            @error('lampiranFLPP')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-            @enderror
-
-
-            <br>
-            <label for="suratPernyataanKPR" class="form-label @error('suratPernyataanKPR') is-invalid @enderror">Format Surat Pernyataan Pemohon KPR Bersubsidi</label>
-            <input class="form-control" type="file" id="suratPernyataanKPR" name="suratPernyataanKPR">
-            @error('suratPernyataanKPR')
+            <label for="formaplikasikprmandiri" class="form-label @error('formaplikasikprmandiri') is-invalid @enderror">Form Aplikasi KPR</label>
+            <input class="form-control" type="file" id="formaplikasikprmandiri" name="formaplikasikprmandiri">
+            @error('formaplikasikprmandiri')
             <div class="invalid-feedback">
                 {{ $message }}
             </div>
@@ -183,14 +177,17 @@
             <a href="https://drive.google.com/drive/folders/1w07shpeBrVbO3VoW3lQwWYoWa0WyVeSW?usp=share_link">Download
                 Form
                 BTN Syariah</a> <br>
-            <label for="formBtnSyariah" class="form-label @error('btnSyariah') is-invalid @enderror">BTN Syariah</label>
-            <input class="form-control" type="file" id="btnSyariah" name="btnSyariah">
-            @error('btnSyariah')
+            <label for="formaplikasikprbtn" class="form-label @error('formaplikasikprbtn') is-invalid @enderror">Form Aplikasi KPR</label>
+            <input class="form-control" type="file" id="formaplikasikprbtn" name="formaplikasikprbtn">
+            @error('formaplikasikprbtn')
             <div class="invalid-feedback">
                 {{ $message }}
             </div>
             @enderror
+
         </div>
+
+        
     </div>
 
     <div class="mb-3" style="display: none">

@@ -48,8 +48,13 @@
                                 <td>{{ $pemesananjasa->email }}</td>
                                 <td>{!! $pemesananjasa->deskripsi !!}</td>
                                 <td><a aria-label="Chat on WhatsApp" href="https://wa.me/+62{{ $pemesananjasa->no_hp }}"> {{ $pemesananjasa->no_hp }}</td>
-                                <td><a href="{{ asset('storage/' . $pemesananjasa->image) }}">Click to See</a></td>
                                 
+                                @if($pemesananjasa->image == null)
+                                <td>-</td>
+                                @else
+                                
+                                <td><a href="{{ asset('storage/' . $pemesananjasa->image) }}">Click to See</a></td>
+                                @endif
                                 @if ($pemesananjasa->image_develop == null)
                                 <td></td>
                                 @else

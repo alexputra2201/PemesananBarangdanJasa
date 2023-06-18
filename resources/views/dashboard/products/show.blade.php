@@ -30,13 +30,12 @@
                                     <th scope="col">Email</th>
                                     <th scope="col">Booking</th>
                                     <th scope="col">Booking Fee</th>
-                                    <th scope="col">Syarat KPR</th>
+                                    <th scope="col">Syarat Pengambilan Rumah</th>
                                     <th scope="col">Bank</th>
                                     <th scope="col">Kredit</th>
-                                    <th scope="col">KPR BTN Syariah</th>
+                                    <th scope="col">Syarat KPR</th>
+                                    <th scope="col">Form Aplikasi BTN</th>
                                     <th scope="col">Form Aplikasi Mandiri</th>
-                                    <th scope="col">FLPP Mandiri</th>
-                                    <th scope="col">Surat Pernyataan KPR Mandiri</th>
                                     <th scope="col">Nomor Handphone</th>
                                     <th scope="col">Tanggal</th>
                                     <th scope="col">Status</th>
@@ -59,14 +58,16 @@
                                     @else
                                     <td>-</td>
                                     @endif
-                                
-                               
-                                    @if($pb->syaratkpr != null) 
-                                    <td><a href="{{ asset('storage/' . $pb->syaratkpr) }}">Click to Download</a>
+
+                                    @if($pb->syaratpengambilanrumah != null) 
+                                    <td><a href="{{ asset('storage/' . $pb->syaratpengambilanrumah) }}">Click to Download</a>
                                     </td>
                                     @else
                                     <td>-</td>
                                     @endif
+                                
+                               
+                                   
                             
 
                                 
@@ -74,36 +75,25 @@
                                 <td>{{ $pb->bank }}</td>
                                 <td>{{ $pb->kredit }}</td>
 
+                                @if($pb->syaratkpr != null) 
+                                <td><a href="{{ asset('storage/' . $pb->syaratkpr) }}">Click to Download</a>
+                                </td>
+                                @else
+                                <td>-</td>
+                                @endif
+
                                 
-                                    @if($pb->formbtn != null) 
-                                    <td><a href="{{ asset('storage/' . $pb->formbtn) }}">Click to Download</a>
+                                    @if($pb->formaplikasikprbtn != null) 
+                                    <td><a href="{{ asset('storage/' . $pb->formaplikasikprbtn) }}">Click to Download</a>
                                     </td>
                                         @else
                                     <td>-</td>
                                     @endif
-                                
 
-                                
-                                    @if($pb->formaplikasikprmandiri != null)
-                                    <td><a href="{{ asset('storage/' . $pb->formaplikasikprmandiri) }}">Click to Download</a></td>
-                                    @else
-                                    <td>-</td>
-                                    @endif
-                                
-
-                               
-                                    @if ($pb->lampiranflppmandiri != null)
-                                    <td><a href="{{ asset('storage/' . $pb->lampiranflppmandiri) }}">Click to Download</a></td>
-                                    @else
-                                    <td>-</td>
-                                    @endif
-                                
-
-                            
-                                    @if ($pb->suratPernyataanKPRmandiri != null)
-                                    <td><a href="{{ asset('storage/' . $pb->suratPernyataanKPRmandiri) }}">Click to Download</a>
+                                    @if($pb->formaplikasikprmandiri != null) 
+                                    <td><a href="{{ asset('storage/' . $pb->formaplikasikprmandiri) }}">Click to Download</a>
                                     </td>
-                                    @else
+                                        @else
                                     <td>-</td>
                                     @endif
                                     

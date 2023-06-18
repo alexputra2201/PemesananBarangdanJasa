@@ -59,26 +59,38 @@ class PemesananBarangController extends Controller
             $validatedData['bank'] = $request->input('bank');
         }
 
-        if ($request->file('formAplikasiKPR')) {
-            $validatedData['formaplikasikprmandiri'] = $request->file('formAplikasiKPR')->store('formAplikasiKPR');
-        }
-        if ($request->file('lampiranFLPP')) {
-            $validatedData['lampiranflppmandiri'] = $request->file('lampiranFLPP')->store('lampiranFLPP');
-        }
-        if ($request->file('suratPernyataanKPR')) {
-            $validatedData['suratPernyataanKPRmandiri'] = $request->file('suratPernyataanKPR')->store('suratPernyataanKPR');
-        }
+        // // if ($request->file('formAplikasiKPR')) {
+        // //     $validatedData['formaplikasikprmandiri'] = $request->file('formAplikasiKPR')->store('formAplikasiKPR');
+        // // }
+        // // if ($request->file('lampiranFLPP')) {
+        // //     $validatedData['lampiranflppmandiri'] = $request->file('lampiranFLPP')->store('lampiranFLPP');
+        // // }
+        // // if ($request->file('suratPernyataanKPR')) {
+        // //     $validatedData['suratPernyataanKPRmandiri'] = $request->file('suratPernyataanKPR')->store('suratPernyataanKPR');
+        // // }
         
-        if ($request->file('btnSyariah')) {
-            $validatedData['formbtn'] = $request->file('btnSyariah')->store('btnSyariah');
-        }
+        // if ($request->file('btnSyariah')) {
+        //     $validatedData['formbtn'] = $request->file('btnSyariah')->store('btnSyariah');
+        // }
 
         if ($request->file('booking_fee')) {
             $validatedData['booking_fee'] = $request->file('booking_fee')->store('booking_fee');
         }
 
+        if ($request->file('syaratpengambilanrumah')) {
+            $validatedData['syaratpengambilanrumah'] = $request->file('syaratpengambilanrumah')->store('syaratpengambilanrumah');
+        }
+
         if ($request->file('syaratkpr')) {
             $validatedData['syaratkpr'] = $request->file('syaratkpr')->store('syaratkpr');
+        }
+
+        if ($request->file('formaplikasikprmandiri')) {
+            $validatedData['formaplikasikprmandiri'] = $request->file('formaplikasikprmandiri')->store('formaplikasikprmandiri');
+        }
+        
+        if ($request->file('formaplikasikprbtn')) {
+            $validatedData['formaplikasikprbtn'] = $request->file('formaplikasikprbtn')->store('formaplikasikprbtn');
         }
 
         $validatedData['user_id'] = auth()->user()->id;
