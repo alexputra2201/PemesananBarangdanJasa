@@ -35,7 +35,10 @@
                                     <th scope="col">Penawaran</th>
                                     <th scope="col">Down Payment (DP)</th>
                                     <th scope="col">Bukti Transaksi DP</th>
+                                    <th scope="col">Bukti Transaksi Pelunasan</th>
                                     <th scope="col">Total Harga</th>
+                                    <th scope="col">Surat Jalan</th>
+                                    <th scope="col">Invoice</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -62,7 +65,25 @@
                                 <td><a href="{{ asset('storage/' . $pemesananjasa->bukti_transaksi) }}">Click to See</a></td>
                                 @endif
 
+                                @if ($pemesananjasa->bukti_transaksi_pelunasan == null)
+                                <td></td>
+                                @else
+                                <td><a href="{{ asset('storage/' . $pemesananjasa->bukti_transaksi_pelunasan) }}">Click to See</a></td>
+                                @endif
+
                                 <td>{{ $pemesananjasa->total_harga }}</td>
+
+                                @if ($pemesananjasa->surat_jalan == null)
+                                <td></td>
+                                @else
+                                <td><a href="{{ asset('storage/' . $pemesananjasa->surat_jalan) }}">Click to See</a></td>
+                                @endif
+
+                                @if ($pemesananjasa->invoice == null)
+                                <td></td>
+                                @else
+                                <td><a href="{{ asset('storage/' . $pemesananjasa->invoice) }}">Click to See</a></td>
+                                @endif
                                
                                 <!-- Membuat status menjadi kuning, merah dan hijau-->
                                 @if($pemesananjasa->status == "Pending")

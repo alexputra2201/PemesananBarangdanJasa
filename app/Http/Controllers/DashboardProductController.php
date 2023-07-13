@@ -68,7 +68,7 @@ class DashboardProductController extends Controller
     {
         return view('dashboard.products.show', [
             'product' => $product,
-            'pemesananbarangs' => PemesananBarang::Where('product_id', $product->id)->latest()->get()
+            'pemesananbarangs' => PemesananBarang::with('kursi')->where('product_id', $product->id)->latest()->get()
         ]);
     }
 

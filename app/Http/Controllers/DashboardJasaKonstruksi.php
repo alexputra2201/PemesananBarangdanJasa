@@ -93,6 +93,18 @@ class DashboardJasaKonstruksi extends Controller
             }
             $findId->penawaran = $request->file('penawaran')->store('penawaran-images');
         }
+        if ($request->file('surat_jalan')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $findId->surat_jalan = $request->file('surat_jalan')->store('surat_jalan-images');
+        }
+        if ($request->file('invoice')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $findId->invoice = $request->file('invoice')->store('invoice-images');
+        }
         $findId->save(); 
         return redirect('/dashboard/jasas/')->with('success', 'Data Pemesanan has been updated!');
     }

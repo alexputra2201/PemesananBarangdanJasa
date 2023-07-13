@@ -133,12 +133,12 @@ class UserJasa extends Controller
         if($findId->total_harga == null || $findId->status == null){
 
 
-            if($findId->total_harga < 0 ){
-                $findId->total_harga = 0;
-            }
-            else{
+            // if($findId->total_harga <= 0 ){
+            //     $findId->total_harga = 0;
+            // }
+            // else{
                 $findId->total_harga = $request->input('total_harga')-$findId->dp;
-            }
+            // }
 
             $findId->image_develop = $request->input('image_develop');
             $findId->status = $request->input('status');  

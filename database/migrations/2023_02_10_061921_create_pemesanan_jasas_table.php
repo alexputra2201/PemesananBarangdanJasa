@@ -27,6 +27,8 @@ class CreatePemesananJasasTable extends Migration
             $table->string('penawaran')->nullable();
             $table->string('no_hp');
             $table->integer('dp')->nullable();
+            $table->string('surat_jalan')->nullable();
+            $table->string('invoice')->nullable();
             $table->integer('total_harga')->nullable();
             $table->string('status')->default("Pending");
             $table->timestamps();

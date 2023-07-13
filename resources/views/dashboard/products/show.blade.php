@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
+                            <thead>                               
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Nama Lengkap</th>
@@ -38,6 +38,7 @@
                                     <th scope="col">Form Aplikasi Mandiri</th>
                                     <th scope="col">Nomor Handphone</th>
                                     <th scope="col">Tanggal</th>
+                                    <th scope="col">Serah Terima Kunci</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -50,7 +51,7 @@
                                 <td>{{ $pb->email }}</td>
                                 
 
-                                <td>{{ $pb->booking }}</td>
+                                <td>{{ $pb->kursi->nomor }}</td>
                                 
                                     @if($pb->booking_fee != null) 
                                     <td><a href="{{ asset('storage/' . $pb->booking_fee) }}">Click to Download</a>
@@ -64,14 +65,9 @@
                                     </td>
                                     @else
                                     <td>-</td>
-                                    @endif
-                                
-                               
-                                   
+                                    @endif                          
                             
-
-                                
-
+             
                                 <td>{{ $pb->bank }}</td>
                                 <td>{{ $pb->kredit }}</td>
 
@@ -107,7 +103,22 @@
                                 @else
                                 <td></td>
                                 @endif
-                                <td>{{ $pb->status }}</td>
+
+                                @if($pb->serahterimakunci != null) 
+                                    <td><a href="{{ asset('storage/' . $pb->serahterimakunci) }}">Click to Download</a>
+                                    </td>
+                                        @else
+                                    <td>-</td>
+                                    @endif
+
+                                <!-- Membuat status menjadi kuning, merah dan hijau-->
+                                @if($pb->status == "Pending")
+                                <td> <span class="badge bg-warning">{{ $pb->status }}</span></td>
+                                @elseif ($pb->status == "Proses")
+                                <td> <span class="badge bg-primary">{{ $pb->status }}</span></td>
+                                @elseif($pb->status == "Done")
+                                <td><span class="badge bg-success">{{ $pb->status }}</span></td>
+                                @endif
                                 <td> <a href="/pemesananbarang/{{ $pb->id }}/edit" class="badge bg-warning"> <img src="{{ asset('assets/edit.svg') }}" alt="eye"></a></td>
                                </tr>
                                   

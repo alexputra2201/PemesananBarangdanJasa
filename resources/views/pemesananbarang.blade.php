@@ -50,13 +50,38 @@
 
     <div class="mb-3">
         <label for="Site Plan" class="form-label">Site Plan</label><br>
-        @foreach ($products as $product) 
+        @foreach ($products as $product)
         @if($product->id == 1)
-        <img src="{{ asset('storage/' . $product->site_plan) }}" alt="" class="img-fluid mt-3 justify-content-center align-content-center" style="max-height:400px; max-width:400px;">
+        <img src="{{ asset('storage/' . $product->site_plan) }}" alt=""
+            class="img-fluid mt-3 justify-content-center align-content-center"
+            style="max-height:400px; max-width:400px;">
         @endif
 
         @endforeach
     </div>
+
+
+    <div class="site-plan-container">
+        @foreach($kursis as $kursi)
+        <div class="rumah @if($kursi->tersedia) available @else booked @endif">
+            <span>{{ $kursi->nomor }}</span>
+            @if($kursi->tersedia)
+            <form action="" method="POST">
+                @csrf
+                @method('PATCH')
+                <button type="submit" class="btn btn-primary btn-sm">Pesan</button>
+            </form>
+            @else
+            <form action="" method="POST">
+                @csrf
+                @method('PATCH')
+                <button type="submit" class="btn btn-danger btn-sm">Batal</button>
+            </form>
+            @endif
+        </div>
+        @endforeach
+    </div>
+
 
     {{-- yang mau ditambahkan --}}
 
@@ -80,8 +105,7 @@
     <div class="mb-3">
         <label for="booking_fee" class="form-label @error('image') is-invalid @enderror">Booking Fee</label>
         <img class="img-preview img-fluid mb-3 col-sm-5">
-        <input class="form-control" type="file" id="image" name="booking_fee"
-            onchange="previewImage()">
+        <input class="form-control" type="file" id="image" name="booking_fee" onchange="previewImage()">
         @error('image')
         <div class="invalid-feedback">
             {{ $message = 'Bukti Transaksi field is required'}}
@@ -91,7 +115,9 @@
 
     <div class="mb-3">
         <div id="syaratpengambilanrumah">
-            <label for="syaratpengambilanrumah" class="form-label @error('syaratpengambilanrumah') is-invalid @enderror">Syarat Pengambilan Rumah</label>
+            <label for="syaratpengambilanrumah"
+                class="form-label @error('syaratpengambilanrumah') is-invalid @enderror">Syarat Pengambilan
+                Rumah</label>
             <a href="" class="bi bi-exclamation-circle" data-bs-toggle="modal" data-bs-target="#deskripsi"></a>
 
             <div class="modal fade" id="deskripsi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -102,7 +128,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                           Lampirkan PDF berupa KTP dan KK.
+                            Lampirkan PDF berupa KTP dan KK.
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -139,7 +165,7 @@
                 <option value="mandiri" selected>Bank Mandiri</option>
                 <option value="btnSyariah">BTN Syariah</option>
             </select>
-            
+
             <br>
             <a href="https://drive.google.com/drive/folders/1bUKOBFOjUg1YvVq2_BF5awqkY8CH-Nv_?usp=sharing">Download
                 Syarat KPR</a> <br>
@@ -153,21 +179,22 @@
         </div>
     </div>
 
-   
+
 
     <div class="mb-3">
         <div id="mandiri" style="display: none">
             <a href="https://drive.google.com/drive/folders/1OKz_QKid3ZmKPE-wePADtpMfZW5T2g1W?usp=share_link">Download
                 Form
                 Mandiri</a> <br>
-            <label for="formaplikasikprmandiri" class="form-label @error('formaplikasikprmandiri') is-invalid @enderror">Form Aplikasi KPR</label>
+            <label for="formaplikasikprmandiri"
+                class="form-label @error('formaplikasikprmandiri') is-invalid @enderror">Form Aplikasi KPR</label>
             <input class="form-control" type="file" id="formaplikasikprmandiri" name="formaplikasikprmandiri">
             @error('formaplikasikprmandiri')
             <div class="invalid-feedback">
                 {{ $message }}
             </div>
             @enderror
-            
+
 
         </div>
     </div>
@@ -177,7 +204,8 @@
             <a href="https://drive.google.com/drive/folders/1w07shpeBrVbO3VoW3lQwWYoWa0WyVeSW?usp=share_link">Download
                 Form
                 BTN Syariah</a> <br>
-            <label for="formaplikasikprbtn" class="form-label @error('formaplikasikprbtn') is-invalid @enderror">Form Aplikasi KPR</label>
+            <label for="formaplikasikprbtn" class="form-label @error('formaplikasikprbtn') is-invalid @enderror">Form
+                Aplikasi KPR</label>
             <input class="form-control" type="file" id="formaplikasikprbtn" name="formaplikasikprbtn">
             @error('formaplikasikprbtn')
             <div class="invalid-feedback">
@@ -187,7 +215,7 @@
 
         </div>
 
-        
+
     </div>
 
     <div class="mb-3" style="display: none">
@@ -205,8 +233,7 @@
 
 
 <script>
-
-function previewImage() {
+    function previewImage() {
         const image = document.querySelector('#image');
         const imgPreview = document.querySelector('.img-preview');
 

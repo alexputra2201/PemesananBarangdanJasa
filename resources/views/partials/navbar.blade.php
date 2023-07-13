@@ -3,11 +3,11 @@
       <div class="container d-flex align-items-center justify-content-between">
           <!-- Uncomment below if you prefer to use an image logo -->
           <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-          <div class="container">
+          {{-- <div class="container"> --}}
               <nav class="navbar brand">
                  <a href="/"> <img src="assets/img/heheee.png" alt="" style="height: 70px;"></a>
               </nav>
-          </div>
+          {{-- </div> --}}
           <nav id="navbar" class="navbar">
               <ul>
                   <li><a class="nav-link scrollto {{ Request::is('home') ? 'active' : ''}}" href="#hero">Halaman Utama</a></li>

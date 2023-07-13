@@ -47,6 +47,11 @@
             <i class="bi bi-shop"></i>
             <span>Jasa</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/dashboard/kursi">
+            <i class="bi bi-shop"></i>
+            <span>Kursi</span></a>
+    </li>
 
 
 

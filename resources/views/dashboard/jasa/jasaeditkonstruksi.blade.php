@@ -47,6 +47,42 @@
         </div>
 
         <div class="mb-3">
+            <label for="surat_jalan" class="form-label @error('surat_jalan') is-invalid @enderror">Surat Jalan</label>
+            <input type="hidden" name="oldImage" value="{{ $pemesananjasa->surat_jalan }}">
+            @if($pemesananjasa->surat_jalan)
+            <img src="{{ asset('storage/' . $pemesananjasa->surat_jalan) }}" class="img-preview3 img-fluid mb-3 col-sm-5 d-block">
+            <input class="form-control" type="file" id="surat_jalan" name="surat_jalan" onchange="previewImage2()">
+            @else
+            <img class="img-preview3 img-fluid mb-3 col-sm-5">
+            <input class="form-control" type="file" id="surat_jalan" name="surat_jalan" onchange="previewImage2()">
+            @endif
+
+            @error('surat_jalan')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+
+        <div class="mb-3">
+            <label for="invoice" class="form-label @error('invoice') is-invalid @enderror">invoice</label>
+            <input type="hidden" name="oldImage" value="{{ $pemesananjasa->invoice }}">
+            @if($pemesananjasa->invoice)
+            <img src="{{ asset('storage/' . $pemesananjasa->invoice) }}" class="img-preview4 img-fluid mb-3 col-sm-5 d-block">
+            <input class="form-control" type="file" id="invoice" name="invoice" onchange="previewImage3()">
+            @else
+            <img class="img-preview4 img-fluid mb-3 col-sm-5">
+            <input class="form-control" type="file" id="invoice" name="invoice" onchange="previewImage3()">
+            @endif
+
+            @error('invoice')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+
+        <div class="mb-3">
             <label for="total_harga" class="form-label">Total Harga</label>
             <input type="text" class="form-control @error('total_harga') is-invalid @enderror" id="total_harga" name="total_harga" required 
             value="{{old('total_harga', $pemesananjasa->total_harga)}}">
@@ -78,6 +114,32 @@
     function previewImage() {
         const image = document.querySelector('#penawaran');
         const imgPreview = document.querySelector('.img-preview2');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+    function previewImage2() {
+        const image = document.querySelector('#surat_jalan');
+        const imgPreview = document.querySelector('.img-preview3');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+    function previewImage3() {
+        const image = document.querySelector('#invoice');
+        const imgPreview = document.querySelector('.img-preview4');
 
         imgPreview.style.display = 'block';
 

@@ -13,5 +13,9 @@ class Product extends Model
     public function PemesananBarang(){
         return $this->hasMany(PemesananJasa::class);
     }
+
+    public function kursis(){
+        return $this->hasMany(Kursi::class);
+    }
   
 }

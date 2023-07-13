@@ -17,9 +17,11 @@ use App\Http\Controllers\PemesananBarangController;
 use App\Http\Controllers\PemesananJasaController;
 use App\Http\Controllers\UserJasaKonstruksi;
 use App\Models\PemesananJasa;
+use App\Models\Kursi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\BotManController;
 use App\Http\Controllers\DashboardJasaKonstruksi;
+use App\Http\Controllers\KursiController;
 use App\Http\Controllers\PemesananBarang2Controller;
 use App\Http\Controllers\PerumnasRimboController;
 use App\Http\Controllers\PerumnasRovinaController;
@@ -85,8 +87,41 @@ Route::put('/historyKonstruksi/{id}/', function(Request $request,$id){
     return redirect('/history')->with('success', 'Harap Menunggu Admin Menghubungi Anda');
 });
 
+
+//jasa konstruksi user pelunasan
+Route::get('/historyKonstruksiPelunasan/{id}/edit', function(PemesananJasa $pemesananJasa, $id){
+    return view('historykonstruksipelunasanedit',[
+        'pemesananjasa' => $pemesananJasa::find($id)
+    ]);
+});
+
+Route::put('/historyKonstruksiPelunasan/{id}/', function(Request $request,$id){
+    $findId = PemesananJasa::find($id);
+    $findId->bukti_transaksi_pelunasan = $request->input('bukti_transaksi_pelunasan');
+    if ($request->file('bukti_transaksi_pelunasan')) {
+        if ($request->oldImage) {
+            Storage::delete($request->oldImage);
+        }
+        $findId->bukti_transaksi_pelunasan = $request->file('bukti_transaksi_pelunasan')->store('bukti_transaksi_pelunasan');
+    }
+    $findId->save();
+    return redirect('/history')->with('success', 'Bukti Pelunasan Telah Dikirim');
+});
+
+
+
 //end jasa konstruksi
 Route::resource('/history', HistoryUser::class)->except('create', 'store', 'destroy','show');
+
+
+Route::get('/kursiUser', function(){
+    return view('kursi',[
+        'kursis' => Kursi::all(),
+        'products' => Product::all(),
+    ]);
+});
+
+
 
 //resource perumahan barang
 Route::resource('/pemesananbarang', PemesananBarangController::class);
@@ -114,4 +149,5 @@ Route::middleware(['admin'])->group(function(){
     Route::resource('/dashboard/products', DashboardProductController::class);
     Route::resource('/dashboard/jasas', DashboardJasaController::class);
     Route::resource('/dashboard/jasakonstruksi', DashboardJasaKonstruksi::class)->middleware('admin');
+    Route::resource('/dashboard/kursi', KursiController::class)->middleware('admin');
 });

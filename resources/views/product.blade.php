@@ -13,8 +13,8 @@
     <span>Produk Kami</span>
     <h2>Produk Kami</h2>
 </div>
-<a href="/product/create" class="btn btn-primary">Pesan Jasa</a>
-<a href="/pemesananbarang/create" class="btn btn-primary">Pesan Perumahan</a>
+{{-- <a href="/product/create" class="btn btn-primary">Pesan Jasa</a>
+<a href="/pemesananbarang/create" class="btn btn-primary">Pesan Perumahan</a> --}}
 <div class="row">
 
     @foreach ($products as $product)

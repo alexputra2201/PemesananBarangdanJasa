@@ -33,12 +33,70 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
   <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+  $("button").click(function(){
+    $("p").hide();
+  });
+});
+
+$(document).ready(function() {
+  $('#tampilkan').click(function() {
+    var nilai = $('input[name="kursi_id"]:checked').val();
+    $('#hasil').html(nilai);
+  });
+});
+
+
+  </script>
+
 
  
   <style>
     trix-toolbar [data-trix-button-group="file-tools"]{
         display:none;
     }
+
+    .site-plan-container {
+        display: grid;
+        grid-template-columns: repeat(32, 1fr);
+        grid-gap: 1px;
+        justify-items: center;
+        margin-top: 10px;
+    }
+
+    @media(max-width: 992px)
+    {
+        .site-plan-container{
+            
+            grid-template-columns: repeat(16, 1fr);
+        }
+    }
+
+    .rumah {
+        width: 40px;
+        height: 75px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .available {
+        background-color: #28a745;
+        color: #fff;
+    }
+
+    .booked {
+        background-color: #dc3545;
+        color: #fff;
+    }
+
 </style>
 
     <!-- =======================================================
@@ -56,6 +114,7 @@
     <section id="career" class="services section-bg">
         <div class="container pt-5">
             @yield('container')
+            
             
         </div>
     </section><!-- End Services Section -->
@@ -94,6 +153,8 @@
         <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
         <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
         <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
+
+        
         
         
         <!-- Template Main JS File -->
@@ -104,7 +165,8 @@
         <script>
             var botmanWidget = {
                 aboutText: 'Write Something',
-                introMessage: "✋ Hi! Saya RoviBot Dari Rovina"
+                introMessage: "✋ Hi! Saya RoviBot Dari Rovina",
+                bubbleAvatarUrl : "{{ asset('assets/chat (1).png') }}"
             };
         </script>
 
@@ -122,6 +184,7 @@
     </script>
         
         <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
            
 </body>
 

@@ -8,7 +8,7 @@
             <h2>Perumahan Rovina Residence</h2>
         </div>
         
-<a href="/pemesananbarang/create" class="btn btn-primary mb-3">Pesan Perumahan</a>
+<a href="/pemesananbarang2/create" class="btn btn-primary mb-3">Pesan Perumahan</a>
 
 
         <div class="row portfolio-container">

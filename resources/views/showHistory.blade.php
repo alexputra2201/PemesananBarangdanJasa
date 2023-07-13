@@ -92,6 +92,8 @@
                                     <a href="/history/{{ $pemesananjasa->id }}/edit" class="badge bg-warning"> Submit
                                         Pelunasan</a>
                                 </td>
+                                @else
+                                <td></td>
                                 @endif
 
                                 {{-- @if($pemesananjasa->bukti_transaksi_pelunasan != null)
@@ -141,6 +143,10 @@
                                 <th scope="col">Penawaran</th>
                                 <th scope="col">DP</th>
                                 <th scope="col">Bukti DP</th>
+                                <th scope="col">Surat Jalan</th>
+                                <th scope="col">Invoice</th>
+                                <th scope="col">Bukti Pelunasan</th>
+                                <th scope="col">Total Harga</th>
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
@@ -157,7 +163,7 @@
                                 @if($pemesananjasa->penawaran == null)
                                 <td></td>
                                 @else
-                                <td><a href="{{ asset('storage/' . $pemesananjasa->penawaran) }}">Click to See</a></td>
+                                <td><a href="{{ asset('storage/' . $pemesananjasa->penawaran) }}">Click to Download</a></td>
                                 @endif
 
                                 <td>{{ $pemesananjasa->dp }}</td>
@@ -173,6 +179,37 @@
                                         Submit Pembayaran DP</a>
                                 </td>
                                 @endif
+
+                               
+
+                                @if($pemesananjasa->surat_jalan != null)
+                                <td><a href="{{ asset('storage/' . $pemesananjasa->surat_jalan) }}">Click to Download</a>
+                                </td>
+                                @else
+                                <td></td>
+                                @endif
+
+                                @if($pemesananjasa->invoice != null)
+                                <td><a href="{{ asset('storage/' . $pemesananjasa->invoice) }}">Click to Download</a>
+                                </td>
+                                @else
+                                <td></td>
+                                @endif
+
+                                @if ($pemesananjasa->bukti_transaksi_pelunasan != null)
+                                <td><a href="{{ asset('storage/' . $pemesananjasa->bukti_transaksi_pelunasan) }}">Click to See</a>
+                                </td>
+                                @elseif ($pemesananjasa->status == "Pending")
+                                <td></td>
+                                @elseif($pemesananjasa->status == "Proses")
+                                <td>
+                                    <a href="/historyKonstruksiPelunasan/{{ $pemesananjasa->id }}/edit" class="badge bg-warning">
+                                        Submit Pembayaran Pelunasan</a>
+                                </td>
+                                @endif
+
+                                <td>{{ $pemesananjasa->total_harga }}</td>
+
 
                                 <!-- Membuat status menjadi kuning, merah dan hijau-->
                                 @if($pemesananjasa->status == "Pending")
@@ -198,15 +235,17 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nama Lengkap</th>
+                                <th scope="col">Booking</th>
+                                <th scope="col">Booking Fee</th>
+                                <th scope="col">Syarat Pengambilan Rumah</th>
                                 {{-- <th scope="col">Email</th> --}}
                                 <th scope="col">Bank</th>
                                 <th scope="col">Kredit</th>
-                                <th scope="col">KPR BTN Syariah</th>
+                                <th scope="col">Syarat KPR</th>
+                                <th scope="col">Form Aplikasi BTN</th>
                                 <th scope="col">Form Aplikasi Mandiri</th>
-                                <th scope="col">FLPP Mandiri</th>
-                                <th scope="col">Surat Pernyataan KPR Mandiri</th>
-                                <th scope="col">Tanggal Ketemu</th>
                                 <th scope="col">Nomor Handphone</th>
+                                <th scope="col">Tanggal Ketemu</th>
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
@@ -215,20 +254,28 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{ $pb->nama_lengkap }}</td>
-                                {{-- <td>{{ $pb->email }}</td> --}}
+                                <td>{{ $pb->kursi->nomor }}</td>
+                                <td>
+                                    @if($pb->booking_fee != null)
+                                    <a href="{{ asset('storage/' . $pb->booking_fee) }}">Click to Download</a>
+                                    @else
+                                    -
+                                    @endif
+                                </td>
+                                <td>{{ $pb->nama_lengkap }}</td>
                                 <td>{{ $pb->bank }}</td>
                                 <td>{{ $pb->kredit }}</td>
                                 <td>
-                                    @if($pb->formbtn != null)
-                                    <a href="{{ asset('storage/' . $pb->formbtn) }}">Click to Download</a>
+                                    @if($pb->syaratpengambilanrumah != null)
+                                    <a href="{{ asset('storage/' . $pb->syaratpengambilanrumah) }}">Click to Download</a>
                                     @else
                                     -
                                     @endif
                                 </td>
 
                                 <td>
-                                    @if($pb->formaplikasikprmandiri != null)
-                                    <a href="{{ asset('storage/' . $pb->formaplikasikprmandiri) }}">Click to
+                                    @if($pb->formaplikasikprbtn != null)
+                                    <a href="{{ asset('storage/' . $pb->formaplikasikprbtn) }}">Click to
                                         Download</a>
                                     @else
                                     -
@@ -236,24 +283,21 @@
                                 </td>
 
                                 <td>
-                                    @if ($pb->lampiranflppmandiri != null)
-                                    <a href="{{ asset('storage/' . $pb->lampiranflppmandiri) }}">Click to Download</a>
+                                    @if ($pb->formaplikasikprmandiri != null)
+                                    <a href="{{ asset('storage/' . $pb->formaplikasikprmandiri) }}">Click to Download</a>
                                     @else
                                     -
                                     @endif
                                 </td>
 
-                                <td>
-                                    @if ($pb->suratPernyataanKPRmandiri != null)
-                                    <a href="{{ asset('storage/' . $pb->suratPernyataanKPRmandiri) }}">Click to
-                                        Download</a>
-                                    @else
-                                    -
-                                    @endif
-
-                                </td>
-                                <td>{{date('d-m-Y', strtotime($pb->tanggal)); }}</td>
                                 <td>{{ $pb->no_hp }}</td>
+                                
+                                @if(!$pb->tanggal == null)
+
+                                <td>{{date('d-m-Y', strtotime($pb->tanggal)); }}</td>
+                                @else
+                                <td></td>
+                                @endif
 
                                 <!-- Membuat status menjadi kuning, merah dan hijau-->
                                 @if($pb->status == "Pending")
@@ -281,15 +325,17 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nama Lengkap</th>
+                                <th scope="col">Booking</th>
+                                <th scope="col">Booking Fee</th>
+                                <th scope="col">Syarat Pengambilan Rumah</th>
                                 {{-- <th scope="col">Email</th> --}}
                                 <th scope="col">Bank</th>
                                 <th scope="col">Kredit</th>
-                                <th scope="col">KPR BTN Syariah</th>
+                                <th scope="col">Syarat KPR</th>
+                                <th scope="col">Form Aplikasi BTN</th>
                                 <th scope="col">Form Aplikasi Mandiri</th>
-                                <th scope="col">FLPP Mandiri</th>
-                                <th scope="col">Surat Pernyataan KPR Mandiri</th>
-                                <th scope="col">Tanggal Ketemu</th>
                                 <th scope="col">Nomor Handphone</th>
+                                <th scope="col">Tanggal Ketemu</th>
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
@@ -298,20 +344,28 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{ $pb->nama_lengkap }}</td>
-                                {{-- <td>{{ $pb->email }}</td> --}}
+                                <td>{{ $pb->kursi->nomor }}</td>
+                                <td>
+                                    @if($pb->booking_fee != null)
+                                    <a href="{{ asset('storage/' . $pb->booking_fee) }}">Click to Download</a>
+                                    @else
+                                    -
+                                    @endif
+                                </td>
+                                <td>{{ $pb->nama_lengkap }}</td>
                                 <td>{{ $pb->bank }}</td>
                                 <td>{{ $pb->kredit }}</td>
                                 <td>
-                                    @if($pb->formbtn != null)
-                                    <a href="{{ asset('storage/' . $pb->formbtn) }}">Click to Download</a>
+                                    @if($pb->syaratpengambilanrumah != null)
+                                    <a href="{{ asset('storage/' . $pb->syaratpengambilanrumah) }}">Click to Download</a>
                                     @else
                                     -
                                     @endif
                                 </td>
 
                                 <td>
-                                    @if($pb->formaplikasikprmandiri != null)
-                                    <a href="{{ asset('storage/' . $pb->formaplikasikprmandiri) }}">Click to
+                                    @if($pb->formaplikasikprbtn != null)
+                                    <a href="{{ asset('storage/' . $pb->formaplikasikprbtn) }}">Click to
                                         Download</a>
                                     @else
                                     -
@@ -319,24 +373,21 @@
                                 </td>
 
                                 <td>
-                                    @if ($pb->lampiranflppmandiri != null)
-                                    <a href="{{ asset('storage/' . $pb->lampiranflppmandiri) }}">Click to Download</a>
+                                    @if ($pb->formaplikasikprmandiri != null)
+                                    <a href="{{ asset('storage/' . $pb->formaplikasikprmandiri) }}">Click to Download</a>
                                     @else
                                     -
                                     @endif
                                 </td>
 
-                                <td>
-                                    @if ($pb->suratPernyataanKPRmandiri != null)
-                                    <a href="{{ asset('storage/' . $pb->suratPernyataanKPRmandiri) }}">Click to
-                                        Download</a>
-                                    @else
-                                    -
-                                    @endif
-
-                                </td>
-                                <td>{{date('d-m-Y', strtotime($pb->tanggal)); }}</td>
                                 <td>{{ $pb->no_hp }}</td>
+                                
+                                @if(!$pb->tanggal == null)
+
+                                <td>{{date('d-m-Y', strtotime($pb->tanggal)); }}</td>
+                                @else
+                                <td></td>
+                                @endif
 
                                 <!-- Membuat status menjadi kuning, merah dan hijau-->
                                 @if($pb->status == "Pending")
@@ -348,6 +399,7 @@
                                 @endif
                             </tr>
                             @endforeach
+                           
                         </tbody>
                     </table>
                 </div>

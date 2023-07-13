@@ -20,18 +20,18 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
 
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
     <link rel="icon" href="{{ asset('assets/img/logorjs.png') }}">
 
@@ -40,11 +40,19 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="{{ asset('assets/library/particle.css') }}">
+
+    {{-- swipper --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
     <style>
         trix-toolbar [data-trix-button-group="file-tools"] {
             display: none;
         }
+        .swiper {
+  width: 600px;
+  height: 300px;
+}
     </style>
 
     <!-- =======================================================
@@ -59,8 +67,39 @@
 
     @include('partials.navbar')
 
+
+
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
+
+        <div id="particle-container">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
 
         <div class="container">
             @yield('container')
@@ -77,8 +116,31 @@
                     </h2>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img">
-                    <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+                <!-- Slider main container -->
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide"> <img src="{{ asset('assets/Kantor/10.jpg') }}" class="img-fluid animated rounded" alt=""></div>
+                        <div class="swiper-slide"> <img src="{{ asset('assets/Kantor/8.jpg') }}" class="img-fluid animated  rounded" alt=""></div>
+                        <div class="swiper-slide"> <img src="{{ asset('assets/Kantor/9.jpg') }}" class="img-fluid animated rounded" alt=""></div>
+                        ...
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
                 </div>
+                </div>
+                <!--<div class="col-lg-6 order-1 order-lg-2 hero-img">
+                    {{-- <img src="assets/img/hero-img.png" class="img-fluid animated" alt=""> --}}
+                    <img src="{{ asset('assets/Kantor/10.jpg') }}" class="img-fluid animated rounded" alt="">
+                </div>-->
             </div>
         </div>
 
@@ -141,7 +203,8 @@
 
                 <div class="row">
                     <div class="col-lg-6">
-                        <img src="assets/img/about.png" class="img-fluid" style="width: 500px; height: 400px;" alt="">
+                        <img src="{{ asset('assets/Kantor/7.jpg') }}" class="img-fluid rounded animated"
+                            style="height:500px; width:720px;" alt="">
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0 content">
                         <h3>PT Rovina Jaya Sentosa</h3>
@@ -355,19 +418,19 @@
     </footer><!-- End Footer -->
 
 
- 
-        <div class="whatsappp" style="
+
+    <div class="whatsappp" style="
         position: fixed;
         left: 20px;
         bottom: 16px;
         z-index: 2200000000;
       ">
-        
-            <a href="https://wa.me/+6282381103311?">
-                <i class="fa fa-whatsapp" style="font-size:72px"></i>
-            </a>
 
-        </div>
+        <a href="https://wa.me/+6282381103311?" style="color:#14c871">
+            <i class="fa fa-whatsapp" style="font-size:72px"></i>
+        </a>
+
+    </div>
 
 
 
@@ -389,14 +452,41 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
 
+    {{-- swipper --}}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
 </body>
 
 
 {{-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css"> --}}
 <script>
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+    });
+
     var botmanWidget = {
+        // frameEndpoint: '/iFrameUrl',
         aboutText: 'Write Something',
-        introMessage: "✋ Hi! Saya RoviBot Dari Rovina"
+        introMessage: "✋ Hi! Saya RoviBot Dari Rovina",
+        bubbleAvatarUrl: "{{ asset('assets/chat (1).png') }}"
     };
 </script>
 

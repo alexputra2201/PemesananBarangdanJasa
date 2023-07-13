@@ -47,6 +47,15 @@ class BotManController extends Controller
                                 5. Apply Form Career <br>');
             }
 
+            else if($message == '4'){
+                $botman->reply('Berikut merupakan langkah-langkah memesan rumah di PT Rovina Jaya Sentosa <br>
+                                1. Tekan halaman produk <br> 
+                                2. Pilih perumahan yang tersedia atau pilih pesan perumahan<br>
+                                3. Maka akan muncul form perumahan<br>
+                                4. Masukkan Email, Nomor Handphone, Booking (Perumahan yang ingin dibooking), Bukti Pembayaran Booking, Syarat Pengambilan Rumah (KTP, KK), dan lengkapi persyaratan kredit jika memakai kredit<br>
+                                5. Apply Form Pemesanan <br>');
+            }
+
             else if($message == '5') {
                 $botman->reply('Sertifikat atau piagam lainnya');
             }

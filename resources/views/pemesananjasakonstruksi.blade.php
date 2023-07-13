@@ -37,9 +37,9 @@
     <div class="konstruksi" id="konstruksi">
         <div class="mb-3" id="imagekonstruksi">
             <label for="image" class="form-label @error('image') is-invalid @enderror">Gambar</label>
-            <a href="" class="bi bi-exclamation-circle" data-bs-toggle="modal" data-bs-target="#image"></a>
+            <a href="" class="bi bi-exclamation-circle" data-bs-toggle="modal" data-bs-target="#image-gambar"></a>
 
-            <div class="modal fade" id="image" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="image-gambar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -92,7 +92,7 @@
                 </div>
             </div>
 
-            @error('body')
+            @error('deskripsi')
             <p class="text-danger">{{$message}}</p>
             @enderror
             <input id="body" type="hidden" name="deskripsi">
