@@ -1,32 +1,34 @@
 <?php
 
 use App\Models\Jasa;
+use App\Models\Kursi;
 use App\Models\Product;
 use App\Models\Project;
+use Illuminate\Http\Request;
+use App\Models\PemesananJasa;
+use App\Models\PemesananBarang;
 use App\Http\Controllers\UserJasa;
 use App\Http\Controllers\UserCareer;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardJasaController;
-use App\Http\Controllers\DashboardCareerController;
-use App\Http\Controllers\DashboardProductController;
-use App\Http\Controllers\DashboardProjectController;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HistoryUser;
-use App\Http\Controllers\PemesananBarangController;
-use App\Http\Controllers\PemesananJasaController;
-use App\Http\Controllers\UserJasaKonstruksi;
-use App\Models\PemesananJasa;
-use App\Models\Kursi;
-use Illuminate\Http\Request;
-use App\Http\Controllers\BotManController;
-use App\Http\Controllers\DashboardJasaKonstruksi;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\KursiController;
-use App\Http\Controllers\PemesananBarang2Controller;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BotManController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserJasaKonstruksi;
+use App\Http\Controllers\DashboardJasaController;
+use App\Http\Controllers\DashboardJasaKonstruksi;
+use App\Http\Controllers\PemesananJasaController;
 use App\Http\Controllers\PerumnasRimboController;
 use App\Http\Controllers\PerumnasRovinaController;
-use App\Models\PemesananBarang;
-use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\DashboardCareerController;
+use App\Http\Controllers\PemesananBarangController;
+use App\Http\Controllers\DashboardProductController;
+use App\Http\Controllers\DashboardProjectController;
+use App\Http\Controllers\PemesananBarang2Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -151,3 +153,8 @@ Route::middleware(['admin'])->group(function(){
     Route::resource('/dashboard/jasakonstruksi', DashboardJasaKonstruksi::class)->middleware('admin');
     Route::resource('/dashboard/kursi', KursiController::class)->middleware('admin');
 });
+
+// pdf
+Route::get('/generate-pdf/{id}', [PDFController::class, 'generatePDF']);
+Route::get('/generate-pdf-serahterima/{id}', [PDFController::class, 'generatePDFSerahTerima']);
+Route::get('/generate-bast/{id}', [PDFController::class, 'generatePDFBAST']);

@@ -26,7 +26,7 @@
             <input id="datepicker"  width="276" name="tanggal" required value="{{ old('tanggal', $pemesananbarang->tanggal) }}"/>
         </div>
 
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="serahterimakunci" class="form-label @error('serahterimakunci') is-invalid @enderror">Serah Terima Kunci</label>
             <input type="hidden" name="oldImage" value="{{ $pemesananbarang->serahterimakunci }}">
             @if($pemesananbarang->serahterimakunci)
@@ -42,7 +42,7 @@
                 {{ $message }}
             </div>
             @enderror
-        </div>
+        </div> --}}
       
         <div class="mb-3">
             <label for="status" class="form-label">Status</label>

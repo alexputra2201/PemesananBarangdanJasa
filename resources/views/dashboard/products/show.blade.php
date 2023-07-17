@@ -104,8 +104,8 @@
                                 <td></td>
                                 @endif
 
-                                @if($pb->serahterimakunci != null) 
-                                    <td><a href="{{ asset('storage/' . $pb->serahterimakunci) }}">Click to Download</a>
+                                @if($pb->status == 'Done') 
+                                    <td><a href="/generate-pdf-serahterima/{{ $pb->id }}">Generate BAST</a>
                                     </td>
                                         @else
                                     <td>-</td>

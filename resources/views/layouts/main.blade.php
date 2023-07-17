@@ -122,6 +122,7 @@
                     <div class="swiper-wrapper">
                         <!-- Slides -->
                         <div class="swiper-slide"> <img src="{{ asset('assets/Kantor/10.jpg') }}" class="img-fluid animated rounded" alt=""></div>
+                        <div class="swiper-slide"> <img src="{{ asset('assets/123.jpg') }}" class="img-fluid animated rounded" alt=""></div>
                         <div class="swiper-slide"> <img src="{{ asset('assets/Kantor/8.jpg') }}" class="img-fluid animated  rounded" alt=""></div>
                         <div class="swiper-slide"> <img src="{{ asset('assets/Kantor/9.jpg') }}" class="img-fluid animated rounded" alt=""></div>
                         ...
@@ -157,7 +158,7 @@
                     <div class="col-lg-4 col-md-6 mt-4 mt-md-0 mb-2">
                         <div class="icon-box">
                             <img src="{{ asset('storage/' . $products[0]->image) }}" class="card-img-top" alt="..."
-                                style="max-height: 200px; max-width: 375px;">
+                                style="max-height: 390px; max-width: 375px;">
                             <div class="card-body">
                                 <h4 class="title d-flex align-content-center justify-content-center">
                                     {{ $products[0]->nama_produk }}</h4>
@@ -172,7 +173,7 @@
                     <div class="col-lg-4 col-md-6 mt-4 mt-md-0 mb-2">
                         <div class="icon-box">
                             <img src="{{ asset('storage/' . $jasa->image) }}" class="card-img-top" alt="..."
-                                style="max-height: 200px; max-width: 375px;">
+                                style="max-height: 390px; max-width: 375px;">
                             <div class="card-body">
                                 <h4 class="title d-flex align-content-center justify-content-center">
                                     {{ $jasa->nama_jasa }}

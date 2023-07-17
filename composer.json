@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "barryvdh/laravel-dompdf": "^2.0",
         "botman/botman": "^2.7",
         "botman/driver-web": "^1.5",
         "cretueusebiu/valet-windows": "^2.5",
@@ -16,7 +17,9 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "spatie/pdf-to-image": "^1.2",
+        "tecnickcom/tcpdf": "^6.6"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

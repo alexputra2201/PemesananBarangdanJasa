@@ -37,7 +37,7 @@
                                     <th scope="col">Bukti Transaksi DP</th>
                                     <th scope="col">Bukti Transaksi Pelunasan</th>
                                     <th scope="col">Total Harga</th>
-                                    <th scope="col">Surat Jalan</th>
+                                    <th scope="col">BAST</th>
                                     <th scope="col">Invoice</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
@@ -53,6 +53,7 @@
                                 <td><a aria-label="Chat on WhatsApp" href="https://wa.me/+62{{ $pemesananjasa->no_hp }}"> {{ $pemesananjasa->no_hp }}</td>
                                 <td><a href="{{ asset('storage/' . $pemesananjasa->image) }}">Click to See</a></td>
                                 
+                               
                                 @if($pemesananjasa->penawaran != null)
                                 <td><a href="{{ asset('storage/' . $pemesananjasa->penawaran) }}">Click to See</a></td>
                                     @else
@@ -73,16 +74,31 @@
 
                                 <td>{{ $pemesananjasa->total_harga }}</td>
 
-                                @if ($pemesananjasa->surat_jalan == null)
+                                {{-- @if ($pemesananjasa->surat_jalan == null)
                                 <td></td>
                                 @else
-                                <td><a href="{{ asset('storage/' . $pemesananjasa->surat_jalan) }}">Click to See</a></td>
+                                <td><a href="{{ asset('storage/' . $pemesananjasa->surat_jalan) }}">Click to Download</a></td>
                                 @endif
 
-                                @if ($pemesananjasa->invoice == null)
+                                 --}}
+
+                                 @if ($pemesananjasa->status == "Done")
+                                <td><a href="/generate-bast/{{ $pemesananjasa->id }}/">Generate BAST</a></td>    
+                                @else
+                                    <td></td>
+                                @endif
+                               
+
+                                {{-- @if ($pemesananjasa->invoice == null)
                                 <td></td>
                                 @else
                                 <td><a href="{{ asset('storage/' . $pemesananjasa->invoice) }}">Click to See</a></td>
+                                @endif --}}
+
+                                @if ($pemesananjasa->status == "Done")
+                                <td><a href="/generate-pdf/{{ $pemesananjasa->id }}/">Generate Invoice</a></td>    
+                                @else
+                                    <td></td>
                                 @endif
                                
                                 <!-- Membuat status menjadi kuning, merah dan hijau-->
@@ -102,6 +118,7 @@
                                @endforeach
                             </tbody>
                         </table>
+
                     </div>
                 </div>
 

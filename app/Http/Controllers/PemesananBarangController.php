@@ -204,7 +204,7 @@ class PemesananBarangController extends Controller
         $findId = $pemesananBarang::find($id);
         // $findId->tanggal = Carbon::parse($request->tanggal)->format('Y-m-d H:i:s');
         $findId->tanggal = Carbon::parse($request->input('tanggal'))->format('Y-m-d H:i:s');
-        $findId['serahterimakunci'] = $request->file('serahterimakunci')->store('serahterimakunci');
+        // $findId['serahterimakunci'] = $request->file('serahterimakunci')->store('serahterimakunci');
         
         // if ($request->file('serahterimakunci')) {
         //     $findId->serahterimakunci = $request->file('serahterimakunci')->store('serahterimakunci');
